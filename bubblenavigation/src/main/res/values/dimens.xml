@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_corner_radii">56dp</dimen>
+    <dimen name="default_nav_item_padding">12dp</dimen>
+    <dimen name="default_nav_item_text_size">14sp</dimen>
+    <dimen name="default_nav_item_text_margin">8dp</dimen>
+    <dimen name="default_nav_item_title_max_width">64dp</dimen>
+</resources>

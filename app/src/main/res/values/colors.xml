@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="home_theme_bg">#ef9a9a</color>
+    <color name="person_theme_bg">#ce93d8</color>
+    <color name="search_theme_bg">#81d4fa</color>
+
+    <color name="home_theme_bg_light">#ffcdd2</color>
+    <color name="person_theme_bg_light">#e1bee7</color>
+    <color name="search_theme_bg_light">#b3e5fc</color>
+
+    <color name="home_theme">#f44336</color>
+    <color name="person_theme">#9c27b0</color>
+    <color name="search_theme">#03a9f4</color>
+
+</resources>
