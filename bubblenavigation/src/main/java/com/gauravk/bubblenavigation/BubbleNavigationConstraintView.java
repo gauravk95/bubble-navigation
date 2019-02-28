@@ -274,6 +274,15 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
             btv.setTitleTypeface(typeface);
     }
 
+    /**
+     * Gets the current active position
+     *
+     * @return active item position
+     */
+    public int getCurrentActiveItemPosition() {
+        return currentActiveItemPosition;
+    }
+
     @Override
     public void onClick(View v) {
         int changedPosition = getItemPositionById(v.getId());

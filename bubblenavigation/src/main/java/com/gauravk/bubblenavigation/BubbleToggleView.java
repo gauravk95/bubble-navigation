@@ -208,22 +208,18 @@ public class BubbleToggleView extends LinearLayout {
             ViewUtils.updateDrawableColor(iconView.getDrawable(), bubbleToggleItem.getColorActive());
             this.isActive = true;
             titleView.setVisibility(VISIBLE);
-            if (!showShapeAlways) {
-                if (getBackground() instanceof TransitionDrawable) {
-                    TransitionDrawable trans = (TransitionDrawable) getBackground();
-                    trans.startTransition(0);
-                }
+            if (getBackground() instanceof TransitionDrawable) {
+                TransitionDrawable trans = (TransitionDrawable) getBackground();
+                trans.startTransition(0);
             }
         } else {
             ViewUtils.updateDrawableColor(iconView.getDrawable(), bubbleToggleItem.getColorInactive());
             this.isActive = false;
             titleView.setVisibility(GONE);
             if (!showShapeAlways) {
-                if (getBackground() instanceof TransitionDrawable) {
-                    TransitionDrawable trans = (TransitionDrawable) getBackground();
-                    trans.reverseTransition(0);
-                } else
+                if (!(getBackground() instanceof TransitionDrawable)) {
                     setBackground(null);
+                }
             }
         }
     }
@@ -264,12 +260,11 @@ public class BubbleToggleView extends LinearLayout {
         });
         animator.start();
 
-        if (!showShapeAlways) {
-            if (getBackground() instanceof TransitionDrawable) {
-                TransitionDrawable trans = (TransitionDrawable) getBackground();
-                trans.startTransition(animationDuration);
-            } else
-                setBackground(bubbleToggleItem.getShape());
+        if (getBackground() instanceof TransitionDrawable) {
+            TransitionDrawable trans = (TransitionDrawable) getBackground();
+            trans.startTransition(animationDuration);
+        } else {
+            setBackground(bubbleToggleItem.getShape());
         }
     }
 
@@ -293,12 +288,11 @@ public class BubbleToggleView extends LinearLayout {
         });
         animator.start();
 
-        if (!showShapeAlways) {
-            if (getBackground() instanceof TransitionDrawable) {
-                TransitionDrawable trans = (TransitionDrawable) getBackground();
-                trans.reverseTransition(animationDuration);
-            } else
-                setBackground(null);
+        if (getBackground() instanceof TransitionDrawable) {
+            TransitionDrawable trans = (TransitionDrawable) getBackground();
+            trans.reverseTransition(animationDuration);
+        } else {
+            if (!showShapeAlways) setBackground(null);
         }
     }
 
