@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val view = findViewById<BubbleNavigationLinearView>(R.id.bottom_navigation_view)
+        val view = findViewById<BubbleNavigationLinearView>(R.id.bottom_navigation_view_linear)
         view.setNavigationChangeListener { _, position ->
             Log.i("Main", "Nav Changed at $position")
         }

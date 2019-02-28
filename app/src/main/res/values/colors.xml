@@ -7,13 +7,19 @@
     <color name="home_theme_bg">#ef9a9a</color>
     <color name="person_theme_bg">#ce93d8</color>
     <color name="search_theme_bg">#81d4fa</color>
+    <color name="list_theme_bg">#a5d6a7</color>
+    <color name="like_theme_bg">#b0bec5</color>
 
-    <color name="home_theme_bg_light">#ffcdd2</color>
-    <color name="person_theme_bg_light">#e1bee7</color>
-    <color name="search_theme_bg_light">#b3e5fc</color>
+    <color name="home_theme_bg_light">#ffebee</color>
+    <color name="person_theme_bg_light">#f3e5f5</color>
+    <color name="search_theme_bg_light">#e3f2fd</color>
+    <color name="list_theme_bg_light">#e8f5e9</color>
+    <color name="like_theme_bg_light">#eceff1</color>
 
     <color name="home_theme">#f44336</color>
     <color name="person_theme">#9c27b0</color>
     <color name="search_theme">#03a9f4</color>
+    <color name="list_theme">#4caf50</color>
+    <color name="like_theme">#607d8b</color>
 
 </resources>
