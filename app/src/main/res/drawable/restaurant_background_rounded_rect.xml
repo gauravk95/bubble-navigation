@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <stroke
-        android:width="3dp"
-        android:color="@color/search_active" />
+    <solid android:color="#B7E2FB" />
     <corners android:radius="8dp" />
 </shape>

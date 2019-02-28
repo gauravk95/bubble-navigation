@@ -7,57 +7,133 @@
     tools:context=".MainActivity">
 
     <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
-        android:id="@+id/bottom_navigation_view_constraint"
+        android:id="@+id/top_navigation_constraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="56dp"
-        android:background="#f5f5f5"
-        android:elevation="2dp"
+        android:layout_marginBottom="380dp"
+        android:background="@color/white"
+        android:elevation="4dp"
         android:padding="12dp"
         app:bnc_mode="spread"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view_linear"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/c_item_home"
+            android:id="@+id/c_item_rest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_colorActive="@color/search_active"
+            app:bt_colorInactive="@color/search_inactive"
+            app:bt_icon="@drawable/ic_restaurant"
+            app:bt_shape="@drawable/transition_background_drawable_restaurant"
+            app:bt_title="@string/restaurant" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/c_item_room"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:bt_active="true"
-            app:bt_colorActive="@color/home_theme"
-            app:bt_colorInactive="@color/home_theme_bg"
-            app:bt_icon="@drawable/ic_home"
-            app:bt_shape="@drawable/home_background_oval"
-            app:bt_title="@string/home" />
+            app:bt_colorActive="@color/home_active"
+            app:bt_colorInactive="@color/home_inactive"
+            app:bt_icon="@drawable/ic_room"
+            app:bt_shape="@drawable/transition_background_drawable_room"
+            app:bt_title="@string/room" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/c_item_search"
+            android:id="@+id/c_item_happy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bt_colorActive="@color/search_theme"
-            app:bt_colorInactive="@color/search_theme_bg"
-            app:bt_icon="@drawable/ic_search"
-            app:bt_shape="@drawable/search_background_oval"
-            app:bt_title="@string/search" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/c_item_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/person_theme"
-            app:bt_colorInactive="@color/person_theme_bg"
-            app:bt_icon="@drawable/ic_person"
-            app:bt_shape="@drawable/person_background_oval"
-            app:bt_title="@string/profile" />
+            app:bt_colorActive="@color/list_active"
+            app:bt_colorInactive="@color/list_inactive"
+            app:bt_icon="@drawable/ic_happy"
+            app:bt_shape="@drawable/transition_background_drawable_happy"
+            app:bt_title="@string/happy" />
     </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
+
+    <TextView
+        android:id="@+id/top_navigation_constraint_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/app_name"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_navigation_constraint" />
+
+    <com.gauravk.bubblenavigation.BubbleNavigationLinearView
+        android:id="@+id/middle_navigation_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:padding="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_linear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_navigation_constraint_text">
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/m_item_shop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:bt_colorActive="@color/search_active"
+            app:bt_colorInactive="@color/default_inactive"
+            app:bt_icon="@drawable/ic_shop"
+            app:bt_shape="@drawable/transition_background_drawable_search"
+            app:bt_title="@string/shop" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/m_item_photos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:bt_colorActive="@color/person_active"
+            app:bt_colorInactive="@color/default_inactive"
+            app:bt_icon="@drawable/ic_photos"
+            app:bt_shape="@drawable/transition_background_drawable_person"
+            app:bt_title="@string/photos" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/m_item_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:bt_active="true"
+            app:bt_colorActive="@color/list_active"
+            app:bt_colorInactive="@color/default_inactive"
+            app:bt_icon="@drawable/ic_call"
+            app:bt_shape="@drawable/transition_background_drawable_list"
+            app:bt_title="@string/call" />
+
+    </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
+
+    <TextView
+        android:id="@+id/bottom_navigation_linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/app_name"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view_linear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.gauravk.bubblenavigation.BubbleNavigationLinearView
         android:id="@+id/bottom_navigation_view_linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
+        android:background="@color/white"
         android:elevation="8dp"
         android:orientation="horizontal"
         android:padding="12dp"
@@ -70,50 +146,50 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:bt_active="true"
-            app:bt_colorActive="@color/home_theme"
-            app:bt_colorInactive="@color/home_theme_bg"
+            app:bt_colorActive="@color/home_active"
+            app:bt_colorInactive="@color/home_inactive"
             app:bt_icon="@drawable/ic_home"
-            app:bt_shape="@drawable/home_background_oval"
+            app:bt_shape="@drawable/transition_background_drawable_home"
             app:bt_title="@string/home" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/l_item_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bt_colorActive="@color/search_theme"
-            app:bt_colorInactive="@color/search_theme_bg"
+            app:bt_colorActive="@color/search_active"
+            app:bt_colorInactive="@color/search_inactive"
             app:bt_icon="@drawable/ic_search"
-            app:bt_shape="@drawable/search_background_oval"
+            app:bt_shape="@drawable/transition_background_drawable_search"
             app:bt_title="@string/search" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/l_item_profile_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bt_colorActive="@color/like_theme"
-            app:bt_colorInactive="@color/like_theme_bg"
+            app:bt_colorActive="@color/like_active"
+            app:bt_colorInactive="@color/like_inactive"
             app:bt_icon="@drawable/ic_like"
-            app:bt_shape="@drawable/like_background_oval"
+            app:bt_shape="@drawable/transition_background_drawable_like"
             app:bt_title="@string/likes" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/l_item_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bt_colorActive="@color/list_theme"
-            app:bt_colorInactive="@color/list_theme_bg"
+            app:bt_colorActive="@color/list_active"
+            app:bt_colorInactive="@color/list_inactive"
             app:bt_icon="@drawable/ic_playlist"
-            app:bt_shape="@drawable/list_background_oval"
+            app:bt_shape="@drawable/transition_background_drawable_list"
             app:bt_title="@string/notification" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/l_item_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bt_colorActive="@color/person_theme"
-            app:bt_colorInactive="@color/person_theme_bg"
+            app:bt_colorActive="@color/person_active"
+            app:bt_colorInactive="@color/person_inactive"
             app:bt_icon="@drawable/ic_person"
-            app:bt_shape="@drawable/person_background_oval"
+            app:bt_shape="@drawable/transition_background_drawable_person"
             app:bt_title="@string/profile" />
     </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
 

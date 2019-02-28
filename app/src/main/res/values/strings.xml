@@ -1,8 +1,16 @@
 <resources>
-    <string name="app_name">BubbleBarSample</string>
+    <string name="app_name">Bubble Navigation</string>
     <string name="home">Home</string>
     <string name="search">Search</string>
     <string name="profile">Profile</string>
     <string name="notification">Notify</string>
     <string name="likes">Favs</string>
+    <string name="position_placeholder_top">Top position is %d</string>
+    <string name="position_placeholder_bottom">Bottom position is %d</string>
+    <string name="happy">Happy</string>
+    <string name="room">Room</string>
+    <string name="restaurant">Food</string>
+    <string name="shop">Shop</string>
+    <string name="photos">Photos</string>
+    <string name="call">Call</string>
 </resources>
