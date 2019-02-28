@@ -3,9 +3,19 @@
 
 🎉 A light-weight library to make beautiful Bubble Navigation Bar with ease with ton of 🎨 customization option.
 
-![Wave](https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/sample.gif)
+**BubbleNavigationConstraintView** in `spread` mode
 
-#### Features:
+![Top](https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/sample_top.gif)
+
+**BubbleNavigationLinearView** when distibuted equally
+
+![Middle](https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/sample_middle.gif)
+
+**BubbleNavigationLinearView** when used normally or **BubbleNavigationConstraintView** in `packed` mode
+
+![Bottom](https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/sample_bottom.gif)
+
+### Features:
 - Higly customizable
 - Light weight and easy-to-use
 - Supports TransitionDrawable for cool state changes
@@ -87,7 +97,11 @@ dependencies {
     </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
 ```
 #### Using BubbleToggleView
-BuggleToogleView is designed to work as a child component for the `BubbleNavigationLinearView and BubbleNavigationConstraintView`. This view can be used independently - you may use it for your own implementation of NavigationBar or create new UI components.
+BuggleToogleView is designed to work as a child component for the `BubbleNavigationLinearView and BubbleNavigationConstraintView`. 
+This view can be used independently 
+- you may use it for your own implementation of NavigationBar 
+- create new UI components
+- or simply use it as toggle view
 
 | **attr**      | **Description**  |
 | ------------- | ------------- | 
@@ -121,7 +135,15 @@ Or in Kotlin
             //navigation changed, do something here
         }
 ```
+## Contribute
 
+Found a bug or have an idea/feature request or any other help needed. Please suggest or report them [here](https://github.com/gauravk95/bubble-navigation/issues)
+
+I am always open to new suggestions and good contributions.
+
+## Contact
+
+Have a cool project in mind? Want to collaborate?  Shoot me a mail at gauravkcs50@gmail.com
 
 ## License:
 ```
