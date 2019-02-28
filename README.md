@@ -18,15 +18,15 @@
 
 Check out the Sample app, to see how its implemented.
 
+### Gradle
 * This library is available on JCenter. To use it, add the following to `build.gradle`
-
 ```gradle
 dependencies {
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.1'
 }
 ```
 
-#### Using the BubbleNavigationConstraintView
+### XML
 ```xml
 <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
         android:id="@+id/top_navigation_constraint"
@@ -59,7 +59,7 @@ dependencies {
 |              | - **packed** : elements are packed with center gravity|
 |              | - **inside** : inside elements are equally distributed|
 
-#### Using the BubbleNavigationLinearView
+### OR
 
 ```xml
 <com.gauravk.bubblenavigation.BubbleNavigationLinearView
@@ -96,13 +96,32 @@ BuggleToogleView is designed to work as a child component for the `BubbleNavigat
 | bt_colorInctive     | When in Inactive State, uses this color for the Icon and Title  | 
 | bt_icon     | Sets the Icon Drawable | 
 | bt_iconWidth     | Updates the Icon Width| 
-| bt_iconHeigth     | Updates the Icon Height | 
-| bt_title     | Sets the Tite Text |
-| bt_titleSize     | Updates the Tite Text Size in sp | 
+| bt_iconHeigth    | Updates the Icon Height | 
+| bt_title     | Sets the Title Text |
+| bt_titleSize | Updates the Tilte Text Size in sp | 
 | bt_shape     | Sets the Background Drawable. Use **TransitionDrawable** to get fade in-out effect when toggling  | 
-| bt_showShapeAlways     |  If true and using Normal drawable, background shape remains visible always | 
+| bt_showShapeAlways  |  If true and using Normal drawable, background shape remains visible always | 
 | bt_duration     |  Sets time duration for toggle animation to complete in ms | 
 | bt_padding     |  Sets the internal padding in dp | 
+
+
+### Activity/Fragment
+In Java
+```java
+  bubbleNavigation.setNavigationChangeListener(new BubbleNavigationChangeListener() {
+            @Override
+            public void onNavigationChanged(View view, int position) {
+                //navigation changed, do something
+            }
+        });
+```
+Or in Kotlin
+```kotlin
+  navigation_view.setNavigationChangeListener { view , position ->
+            //navigation changed, do something here
+        }
+```
+
 
 ## License:
 ```
