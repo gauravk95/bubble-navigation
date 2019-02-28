@@ -7,7 +7,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -33,3 +33,31 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+ext {
+    bintrayRepo = 'maven-repo'
+    bintrayName = 'bubblenavigation'
+
+    publishedGroupId = 'com.gauravk.bubblenavigation'
+    libraryName = 'bubblenavigation'
+    artifact = 'bubblenavigation'
+
+    libraryDescription = 'A light-weight library to make beautiful Bubble Navigation Bar with ease with ton of customization option.'
+
+    siteUrl = 'https://github.com/gauravk95/bubble-navigation'
+    gitUrl = 'https://github.com/gauravk95/bubble-navigation.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'gauravk95'
+    developerName = 'Gaurav Kumar'
+    developerEmail = 'gauravkcs50@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+// add it to the bottom of the file
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/bintrayv.gradle'
