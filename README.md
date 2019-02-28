@@ -3,6 +3,10 @@
 
 🎉 A light-weight library to make beautiful Bubble Navigation Bar with ease with ton of 🎨 customization option.
 
+**BubbleNavigationLinearView** when used normally or **BubbleNavigationConstraintView** in `packed` mode
+
+![Bottom](https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/sample_bottom.gif)
+
 **BubbleNavigationConstraintView** in `spread` mode
 
 ![Top](https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/sample_top.gif)
@@ -10,10 +14,6 @@
 **BubbleNavigationLinearView** when distibuted equally
 
 ![Middle](https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/sample_middle.gif)
-
-**BubbleNavigationLinearView** when used normally or **BubbleNavigationConstraintView** in `packed` mode
-
-![Bottom](https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/sample_bottom.gif)
 
 ### Features:
 - Higly customizable
