@@ -16,7 +16,6 @@ package com.gauravk.bubblenavigation;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 
-@SuppressWarnings("unused")
 class BubbleToggleItem {
 
     private Drawable icon;

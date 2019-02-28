@@ -101,21 +101,23 @@ public class BubbleToggleView extends LinearLayout {
         maxTitleWidth = context.getResources().getDimension(R.dimen.default_nav_item_title_max_width);
         float iconWidth = context.getResources().getDimension(R.dimen.default_icon_size);
         float iconHeight = context.getResources().getDimension(R.dimen.default_icon_size);
+        int internalPadding = (int) context.getResources().getDimension(R.dimen.default_nav_item_padding);
 
         if (attrs != null) {
             TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.BubbleToggleView, 0, 0);
             try {
-                icon = ta.getDrawable(R.styleable.BubbleToggleView_bb_icon);
-                iconWidth = ta.getDimension(R.styleable.BubbleToggleView_bb_iconWidth, iconWidth);
-                iconHeight = ta.getDimension(R.styleable.BubbleToggleView_bb_iconHeight, iconHeight);
-                shape = ta.getDrawable(R.styleable.BubbleToggleView_bb_shape);
-                showShapeAlways = ta.getBoolean(R.styleable.BubbleToggleView_bb_showShapeAlways, false);
-                title = ta.getString(R.styleable.BubbleToggleView_bb_title);
-                titleSize = ta.getDimension(R.styleable.BubbleToggleView_bb_titleSize, titleSize);
-                colorActive = ta.getColor(R.styleable.BubbleToggleView_bb_colorActive, colorActive);
-                colorInactive = ta.getColor(R.styleable.BubbleToggleView_bb_colorInactive, colorInactive);
-                isActive = ta.getBoolean(R.styleable.BubbleToggleView_bb_active, false);
-                animationDuration = ta.getInteger(R.styleable.BubbleToggleView_bb_duration, DEFAULT_ANIM_DURATION);
+                icon = ta.getDrawable(R.styleable.BubbleToggleView_bt_icon);
+                iconWidth = ta.getDimension(R.styleable.BubbleToggleView_bt_iconWidth, iconWidth);
+                iconHeight = ta.getDimension(R.styleable.BubbleToggleView_bt_iconHeight, iconHeight);
+                shape = ta.getDrawable(R.styleable.BubbleToggleView_bt_shape);
+                showShapeAlways = ta.getBoolean(R.styleable.BubbleToggleView_bt_showShapeAlways, false);
+                title = ta.getString(R.styleable.BubbleToggleView_bt_title);
+                titleSize = ta.getDimension(R.styleable.BubbleToggleView_bt_titleSize, titleSize);
+                colorActive = ta.getColor(R.styleable.BubbleToggleView_bt_colorActive, colorActive);
+                colorInactive = ta.getColor(R.styleable.BubbleToggleView_bt_colorInactive, colorInactive);
+                isActive = ta.getBoolean(R.styleable.BubbleToggleView_bt_active, false);
+                animationDuration = ta.getInteger(R.styleable.BubbleToggleView_bt_duration, DEFAULT_ANIM_DURATION);
+                internalPadding = (int) ta.getDimension(R.styleable.BubbleToggleView_bt_padding, internalPadding);
             } finally {
                 ta.recycle();
             }
@@ -145,8 +147,7 @@ public class BubbleToggleView extends LinearLayout {
         //set the gravity
         setGravity(Gravity.CENTER);
         //set the internal padding
-        int padding = (int) context.getResources().getDimension(R.dimen.default_nav_item_padding);
-        setPadding(padding, padding, padding, padding);
+        setPadding(internalPadding, internalPadding, internalPadding, internalPadding);
 
         createBubbleItemView(context);
         setInitialState(isActive);
@@ -341,13 +342,6 @@ public class BubbleToggleView extends LinearLayout {
         //if the new calculate title width is less than current one, update the titleView specs
         if (newTitleWidth > 0 && newTitleWidth < measuredTitleWidth) {
             measuredTitleWidth = titleView.getMeasuredWidth();
-            /*
-            titleViewLayoutParams.width = newTitleWidth;
-            titleView.setLayoutParams(titleViewLayoutParams);
-            titleView.measure(0, 0);
-            titleView.requestLayout();
-            titleView.invalidate();
-            */
         }
     }
 

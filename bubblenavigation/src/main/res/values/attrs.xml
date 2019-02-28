@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="BubbleToggleView">
-        <attr name="bb_icon" format="reference" />
-        <attr name="bb_iconWidth" format="dimension" />
-        <attr name="bb_iconHeight" format="dimension" />
-        <attr name="bb_shape" format="reference" />
-        <attr name="bb_showShapeAlways" format="boolean" />
-        <attr name="bb_title" format="string" />
-        <attr name="bb_titleSize" format="dimension" />
-        <attr name="bb_colorActive" format="color" />
-        <attr name="bb_colorInactive" format="color" />
-        <attr name="bb_active" format="boolean" />
-        <attr name="bb_duration" format="integer" />
+        <attr name="bt_icon" format="reference" />
+        <attr name="bt_iconWidth" format="dimension" />
+        <attr name="bt_iconHeight" format="dimension" />
+        <attr name="bt_shape" format="reference" />
+        <attr name="bt_showShapeAlways" format="boolean" />
+        <attr name="bt_title" format="string" />
+        <attr name="bt_titleSize" format="dimension" />
+        <attr name="bt_colorActive" format="color" />
+        <attr name="bt_colorInactive" format="color" />
+        <attr name="bt_active" format="boolean" />
+        <attr name="bt_duration" format="integer" />
+        <attr name="bt_padding" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="BubbleNavigationConstraintView">
+        <attr name="bnc_mode">
+            <enum name="spread" value="0" />
+            <enum name="inside" value="1" />
+            <enum name="packed" value="2" />
+        </attr>
     </declare-styleable>
 </resources>
