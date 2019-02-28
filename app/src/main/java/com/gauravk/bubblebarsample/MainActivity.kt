@@ -3,7 +3,7 @@ package com.gauravk.bubblebarsample
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.gauravk.bubblenavigation.BubbleNavigationView
+import com.gauravk.bubblenavigation.BubbleNavigationLinearView
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val view = findViewById<BubbleNavigationView>(R.id.bottom_navigation_view)
+        val view = findViewById<BubbleNavigationLinearView>(R.id.bottom_navigation_view)
         view.setNavigationChangeListener { _, position ->
             Log.i("Main", "Nav Changed at $position")
         }

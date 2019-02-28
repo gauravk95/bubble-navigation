@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="BubbleToggleView">
-        <attr name="bb_icon" format="reference"/>
-        <attr name="bb_shape" format="reference"/>
-        <attr name="bb_shapeColor" format="color"/>
-        <attr name="bb_showShapeAlways" format="boolean"/>
-        <attr name="bb_title" format="string"/>
-        <attr name="bb_titleSize" format="dimension"/>
-        <attr name="bb_colorActive" format="color"/>
-        <attr name="bb_colorInactive" format="color"/>
-        <attr name="bb_active" format="boolean"/>
-        <attr name="bb_duration" format="integer"/>
+        <attr name="bb_icon" format="reference" />
+        <attr name="bb_iconWidth" format="dimension" />
+        <attr name="bb_iconHeight" format="dimension" />
+        <attr name="bb_shape" format="reference" />
+        <attr name="bb_showShapeAlways" format="boolean" />
+        <attr name="bb_title" format="string" />
+        <attr name="bb_titleSize" format="dimension" />
+        <attr name="bb_colorActive" format="color" />
+        <attr name="bb_colorInactive" format="color" />
+        <attr name="bb_active" format="boolean" />
+        <attr name="bb_duration" format="integer" />
     </declare-styleable>
 </resources>

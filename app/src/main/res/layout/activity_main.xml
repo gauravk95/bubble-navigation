@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.gauravk.bubblenavigation.BubbleNavigationView
+    <com.gauravk.bubblenavigation.BubbleNavigationLinearView
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,33 +27,48 @@
             app:bb_colorInactive="@color/home_theme_bg"
             app:bb_icon="@drawable/ic_home"
             app:bb_shape="@drawable/home_background"
-            app:bb_shapeColor="@color/home_theme_bg_light"
             app:bb_title="@string/home" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/bubble_nav_item_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             app:bb_colorActive="@color/search_theme"
             app:bb_colorInactive="@color/search_theme_bg"
             app:bb_icon="@drawable/ic_search"
             app:bb_shape="@drawable/search_background"
-            app:bb_shapeColor="@color/search_theme_bg_light"
             app:bb_title="@string/search" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/bubble_nav_item_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             app:bb_colorActive="@color/person_theme"
             app:bb_colorInactive="@color/person_theme_bg"
             app:bb_icon="@drawable/ic_person"
             app:bb_shape="@drawable/person_background"
-            app:bb_shapeColor="@color/person_theme_bg_light"
             app:bb_title="@string/profile" />
-    </com.gauravk.bubblenavigation.BubbleNavigationView>
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/bubble_nav_item_profile2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bb_colorActive="@color/home_theme_bg"
+            app:bb_colorInactive="@color/person_theme_bg"
+            app:bb_icon="@drawable/ic_person"
+            app:bb_shape="@drawable/person_background"
+            app:bb_title="@string/profile" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/bubble_nav_item_profile3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bb_colorActive="@color/home_theme"
+            app:bb_colorInactive="@color/search_theme_bg"
+            app:bb_icon="@drawable/ic_person"
+            app:bb_shape="@drawable/person_background"
+            app:bb_title="@string/profile" />
+    </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
 
 
 </android.support.constraint.ConstraintLayout>
