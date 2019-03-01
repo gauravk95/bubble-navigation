@@ -24,6 +24,7 @@
             android:id="@+id/c_item_rest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:bt_padding="8dp"
             app:bt_colorActive="@color/orange_active"
             app:bt_colorInactive="@color/orange_inactive"
             app:bt_icon="@drawable/ic_restaurant"
@@ -88,7 +89,7 @@
             app:bt_colorActive="@color/blue_active"
             app:bt_colorInactive="@color/default_inactive"
             app:bt_icon="@drawable/ic_shop"
-            app:bt_shape="@drawable/search_background_stroke"
+            app:bt_shape="@drawable/shop_background_stroke"
             app:bt_title="@string/shop" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
