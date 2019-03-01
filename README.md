@@ -1,7 +1,7 @@
 # Bubble Navigation
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16) [ ![Download](https://api.bintray.com/packages/gauravk95/maven-repo/bubblenavigation/images/download.svg) ](https://bintray.com/gauravk95/maven-repo/bubblenavigation/_latestVersion) [![Build Status](https://travis-ci.org/gauravk95/bubble-navigation.svg?branch=master)](https://travis-ci.org/gauravk95/bubble-navigation)
 
-🎉 A light-weight library to make beautiful Bubble Navigation Bar with ease with ton of 🎨 customization option.
+🎉 A light-weight library to make beautiful Bubble Navigation Bar easily with ton of 🎨 customization option.
 
 ## Demos
 
