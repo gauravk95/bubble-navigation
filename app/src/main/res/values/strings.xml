@@ -5,8 +5,6 @@
     <string name="profile">Profile</string>
     <string name="notification">Notify</string>
     <string name="likes">Favs</string>
-    <string name="position_placeholder_top">Top position is %d</string>
-    <string name="position_placeholder_bottom">Bottom position is %d</string>
     <string name="happy">Happy</string>
     <string name="room">Room</string>
     <string name="restaurant">Food</string>

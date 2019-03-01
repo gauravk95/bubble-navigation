@@ -1,5 +1,6 @@
 package com.gauravk.bubblebarsample
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
@@ -11,22 +12,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //listeners for top navigation view
-        top_navigation_constraint_text.text = String.format(
-            getString(R.string.position_placeholder_top),
-            top_navigation_constraint.currentActiveItemPosition
-        )
-        top_navigation_constraint.setNavigationChangeListener { _, position ->
-            top_navigation_constraint_text.text = String.format(getString(R.string.position_placeholder_top), position)
+        open_top_navigation_bar.setOnClickListener {
+            launchTopBarActivity()
         }
 
-        //listener for bottom navigation view
-        bottom_navigation_linear.text = String.format(
-            getString(R.string.position_placeholder_bottom),
-            bottom_navigation_view_linear.currentActiveItemPosition
-        )
-        bottom_navigation_view_linear.setNavigationChangeListener { _, position ->
-            bottom_navigation_linear.text = String.format(getString(R.string.position_placeholder_bottom), position)
+        open_bottom_equal_navigation_bar.setOnClickListener {
+            launchEqualBarActivity()
         }
+
+        open_bottom_navigation_bar.setOnClickListener {
+            launchBottomBarActivity()
+        }
+    }
+
+    private fun launchBottomBarActivity() {
+        val intent = Intent(this, BottomBarActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun launchTopBarActivity() {
+        val intent = Intent(this, TopBarActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun launchEqualBarActivity() {
+        val intent = Intent(this, EqualBottomBarActivity::class.java)
+        startActivity(intent)
     }
 }

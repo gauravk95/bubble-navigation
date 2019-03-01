@@ -6,193 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
-        android:id="@+id/top_navigation_constraint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="380dp"
-        android:background="@color/white"
-        android:elevation="4dp"
-        android:padding="12dp"
-        app:bnc_mode="spread"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/c_item_rest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_padding="8dp"
-            app:bt_colorActive="@color/orange_active"
-            app:bt_colorInactive="@color/orange_inactive"
-            app:bt_icon="@drawable/ic_restaurant"
-            app:bt_shape="@drawable/transition_background_drawable_default"
-            app:bt_title="@string/restaurant" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/c_item_room"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_active="true"
-            app:bt_colorActive="@color/red_active"
-            app:bt_colorInactive="@color/red_inactive"
-            app:bt_icon="@drawable/ic_room"
-            app:bt_shape="@drawable/transition_background_drawable_default"
-            app:bt_title="@string/room" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/c_item_happy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/green_active"
-            app:bt_colorInactive="@color/green_inactive"
-            app:bt_icon="@drawable/ic_happy"
-            app:bt_shape="@drawable/transition_background_drawable_default"
-            app:bt_title="@string/happy" />
-    </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
-
-    <TextView
-        android:id="@+id/top_navigation_constraint_text"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/open_top_navigation_bar"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/app_name"
-        android:textSize="20sp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/home_background_oval"
+        android:padding="16dp"
+        android:elevation="2dp"
+        android:text="Top Navigation Bar"
+        app:layout_constraintBottom_toTopOf="@+id/open_bottom_equal_navigation_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_navigation_constraint" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.gauravk.bubblenavigation.BubbleNavigationLinearView
-        android:id="@+id/middle_navigation_linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/white"
-        android:elevation="4dp"
-        android:padding="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_linear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_navigation_constraint_text">
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/m_item_shop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:bt_colorActive="@color/blue_active"
-            app:bt_colorInactive="@color/default_inactive"
-            app:bt_icon="@drawable/ic_shop"
-            app:bt_shape="@drawable/shop_background_stroke"
-            app:bt_title="@string/shop" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/m_item_photos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:bt_colorActive="@color/purple_active"
-            app:bt_colorInactive="@color/default_inactive"
-            app:bt_icon="@drawable/ic_photos"
-            app:bt_shape="@drawable/photos_background_stroke"
-            app:bt_title="@string/photos" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/m_item_call"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:bt_active="true"
-            app:bt_colorActive="@color/green_active"
-            app:bt_colorInactive="@color/default_inactive"
-            app:bt_icon="@drawable/ic_call"
-            app:bt_shape="@drawable/call_background_stroke"
-            app:bt_title="@string/call" />
-
-    </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
-
-    <TextView
-        android:id="@+id/bottom_navigation_linear"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/open_bottom_equal_navigation_bar"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/app_name"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view_linear"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/list_background_oval"
+        android:padding="16dp"
+        android:elevation="2dp"
+        android:text="Equal Navigation Bar"
+        app:layout_constraintBottom_toTopOf="@+id/open_bottom_navigation_bar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/open_top_navigation_bar" />
 
-    <com.gauravk.bubblenavigation.BubbleNavigationLinearView
-        android:id="@+id/bottom_navigation_view_linear"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/open_bottom_navigation_bar"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:elevation="8dp"
-        android:orientation="horizontal"
-        android:padding="12dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/search_background_oval"
+        android:padding="16dp"
+        android:elevation="2dp"
+        android:text="Bottom Navigation Bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_active="true"
-            app:bt_colorActive="@color/red_active"
-            app:bt_colorInactive="@color/red_inactive"
-            app:bt_icon="@drawable/ic_home"
-            app:bt_shape="@drawable/transition_background_drawable_home"
-            app:bt_title="@string/home" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/blue_active"
-            app:bt_colorInactive="@color/blue_inactive"
-            app:bt_icon="@drawable/ic_search"
-            app:bt_shape="@drawable/transition_background_drawable_search"
-            app:bt_title="@string/search" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_profile_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/blue_grey_active"
-            app:bt_colorInactive="@color/blue_grey_inactive"
-            app:bt_icon="@drawable/ic_like"
-            app:bt_shape="@drawable/transition_background_drawable_like"
-            app:bt_title="@string/likes" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_notification"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/green_active"
-            app:bt_colorInactive="@color/green_inactive"
-            app:bt_icon="@drawable/ic_playlist"
-            app:bt_shape="@drawable/transition_background_drawable_list"
-            app:bt_title="@string/notification" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/purple_active"
-            app:bt_colorInactive="@color/purple_inactive"
-            app:bt_icon="@drawable/ic_person"
-            app:bt_shape="@drawable/transition_background_drawable_person"
-            app:bt_title="@string/profile" />
-    </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/open_bottom_equal_navigation_bar" />
 
 </android.support.constraint.ConstraintLayout>
