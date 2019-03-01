@@ -177,25 +177,25 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
         ConstraintSet constraintSet = new ConstraintSet();
         constraintSet.clone(this);
 
-        int firstItemId = bubbleNavItems.get(0).getId();
-        int lastItemId = bubbleNavItems.get(bubbleNavItems.size() - 1).getId();
-
-        constraintSet.connect(firstItemId, ConstraintSet.LEFT, ConstraintSet.PARENT_ID, ConstraintSet.LEFT, 0);
-        constraintSet.connect(lastItemId, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, 0);
-
         int[] chainIdsList = new int[bubbleNavItems.size()];
         float[] chainWeightList = new float[bubbleNavItems.size()];
 
         for (int i = 0; i < bubbleNavItems.size(); i++) {
-            chainIdsList[i] = bubbleNavItems.get(i).getId();
+            int id = bubbleNavItems.get(i).getId();
+            chainIdsList[i] = id;
             chainWeightList[i] = 0.0f;
+            //set the top and bottom constraint for eact items
+            constraintSet.connect(id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, 0);
+            constraintSet.connect(id, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM, 0);
         }
 
+        //create an horizontal chain
         constraintSet.createHorizontalChain(getId(), ConstraintSet.LEFT,
                 getId(), ConstraintSet.RIGHT,
                 chainIdsList, chainWeightList,
                 getChainTypeFromMode(displayMode));
 
+        //apply the constraint
         constraintSet.applyTo(this);
     }
 
@@ -224,7 +224,7 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
     private void updateMeasurementForItems() {
         int numChildElements = bubbleNavItems.size();
         if (numChildElements > 0) {
-            int calculatedEachItemWidth = (getMeasuredWidth() - (getPaddingStart() + getPaddingEnd())) / numChildElements;
+            int calculatedEachItemWidth = (getMeasuredWidth() - (getPaddingRight() + getPaddingLeft())) / numChildElements;
             for (BubbleToggleView btv : bubbleNavItems)
                 btv.updateMeasurements(calculatedEachItemWidth);
         }

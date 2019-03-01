@@ -55,6 +55,7 @@ public class BubbleToggleView extends LinearLayout {
 
     private float maxTitleWidth;
     private float measuredTitleWidth;
+    private int internalPadding;
 
     /**
      * Constructors
@@ -101,7 +102,7 @@ public class BubbleToggleView extends LinearLayout {
         maxTitleWidth = context.getResources().getDimension(R.dimen.default_nav_item_title_max_width);
         float iconWidth = context.getResources().getDimension(R.dimen.default_icon_size);
         float iconHeight = context.getResources().getDimension(R.dimen.default_icon_size);
-        int internalPadding = (int) context.getResources().getDimension(R.dimen.default_nav_item_padding);
+        internalPadding = (int) context.getResources().getDimension(R.dimen.default_nav_item_padding);
 
         if (attrs != null) {
             TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.BubbleToggleView, 0, 0);
@@ -146,8 +147,13 @@ public class BubbleToggleView extends LinearLayout {
         setOrientation(HORIZONTAL);
         //set the gravity
         setGravity(Gravity.CENTER);
-        //set the internal padding
-        setPadding(internalPadding, internalPadding, internalPadding, internalPadding);
+
+        post(new Runnable() {
+            @Override
+            public void run() {
+                setPadding(internalPadding, internalPadding, internalPadding, internalPadding);
+            }
+        });
 
         createBubbleItemView(context);
         setInitialState(isActive);
@@ -323,15 +329,15 @@ public class BubbleToggleView extends LinearLayout {
         int marginLeft = 0, marginRight = 0;
         ViewGroup.LayoutParams titleViewLayoutParams = titleView.getLayoutParams();
         if (titleViewLayoutParams instanceof LayoutParams) {
-            marginLeft = ((LayoutParams) titleViewLayoutParams).getMarginStart();
-            marginRight = ((LayoutParams) titleViewLayoutParams).getMarginEnd();
+            marginLeft = ((LayoutParams) titleViewLayoutParams).rightMargin;
+            marginRight = ((LayoutParams) titleViewLayoutParams).leftMargin;
         }
 
         int newTitleWidth = maxWidth
-                - (getPaddingStart() + getPaddingEnd())
+                - (getPaddingRight() + getPaddingLeft())
                 - (marginLeft + marginRight)
                 - ((int) bubbleToggleItem.getIconWidth())
-                + titleView.getPaddingStart() + titleView.getPaddingEnd();
+                + titleView.getPaddingRight() + titleView.getPaddingLeft();
 
         //if the new calculate title width is less than current one, update the titleView specs
         if (newTitleWidth > 0 && newTitleWidth < measuredTitleWidth) {

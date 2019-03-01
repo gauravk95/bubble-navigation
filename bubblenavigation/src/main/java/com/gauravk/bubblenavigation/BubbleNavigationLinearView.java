@@ -155,7 +155,7 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
     private void updateMeasurementForItems() {
         int numChildElements = bubbleNavItems.size();
         if (numChildElements > 0) {
-            int calculatedEachItemWidth = (getMeasuredWidth() - (getPaddingStart() + getPaddingEnd())) / numChildElements;
+            int calculatedEachItemWidth = (getMeasuredWidth() - (getPaddingRight() + getPaddingLeft())) / numChildElements;
             for (BubbleToggleView btv : bubbleNavItems)
                 btv.updateMeasurements(calculatedEachItemWidth);
         }
