@@ -1,5 +1,5 @@
 # Bubble Navigation
-[![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19) [ ![Download](https://api.bintray.com/packages/gauravk95/maven-repo/bubblenavigation/images/download.svg) ](https://bintray.com/gauravk95/maven-repo/bubblenavigation/_latestVersion)
+[![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16) [ ![Download](https://api.bintray.com/packages/gauravk95/maven-repo/bubblenavigation/images/download.svg) ](https://bintray.com/gauravk95/maven-repo/bubblenavigation/_latestVersion) [![Build Status](https://travis-ci.org/gauravk95/bubble-navigation.svg?branch=master)](https://travis-ci.org/gauravk95/bubble-navigation)
 
 🎉 A light-weight library to make beautiful Bubble Navigation Bar with ease with ton of 🎨 customization option.
 
@@ -16,6 +16,7 @@
 ![Middle](https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/sample_middle.gif)
 
 ### Features:
+- Support for API Level 16+ 
 - Higly customizable
 - Light weight and easy-to-use
 - Supports TransitionDrawable for cool state changes
@@ -32,7 +33,7 @@ Check out the Sample app, to see how its implemented.
 * This library is available on JCenter. To use it, add the following to `build.gradle`
 ```gradle
 dependencies {
-    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.1'
+    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.2'
 }
 ```
 
