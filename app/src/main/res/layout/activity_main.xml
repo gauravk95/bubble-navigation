@@ -24,10 +24,10 @@
             android:id="@+id/c_item_rest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bt_colorActive="@color/search_active"
-            app:bt_colorInactive="@color/search_inactive"
+            app:bt_colorActive="@color/orange_active"
+            app:bt_colorInactive="@color/orange_inactive"
             app:bt_icon="@drawable/ic_restaurant"
-            app:bt_shape="@drawable/transition_background_drawable_restaurant"
+            app:bt_shape="@drawable/transition_background_drawable_default"
             app:bt_title="@string/restaurant" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
@@ -35,20 +35,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:bt_active="true"
-            app:bt_colorActive="@color/home_active"
-            app:bt_colorInactive="@color/home_inactive"
+            app:bt_colorActive="@color/red_active"
+            app:bt_colorInactive="@color/red_inactive"
             app:bt_icon="@drawable/ic_room"
-            app:bt_shape="@drawable/transition_background_drawable_room"
+            app:bt_shape="@drawable/transition_background_drawable_default"
             app:bt_title="@string/room" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/c_item_happy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bt_colorActive="@color/list_active"
-            app:bt_colorInactive="@color/list_inactive"
+            app:bt_colorActive="@color/green_active"
+            app:bt_colorInactive="@color/green_inactive"
             app:bt_icon="@drawable/ic_happy"
-            app:bt_shape="@drawable/transition_background_drawable_happy"
+            app:bt_shape="@drawable/transition_background_drawable_default"
             app:bt_title="@string/happy" />
     </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
 
@@ -85,10 +85,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:bt_colorActive="@color/search_active"
+            app:bt_colorActive="@color/blue_active"
             app:bt_colorInactive="@color/default_inactive"
             app:bt_icon="@drawable/ic_shop"
-            app:bt_shape="@drawable/transition_background_drawable_search"
+            app:bt_shape="@drawable/search_background_stroke"
             app:bt_title="@string/shop" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
@@ -96,10 +96,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:bt_colorActive="@color/person_active"
+            app:bt_colorActive="@color/purple_active"
             app:bt_colorInactive="@color/default_inactive"
             app:bt_icon="@drawable/ic_photos"
-            app:bt_shape="@drawable/transition_background_drawable_person"
+            app:bt_shape="@drawable/photos_background_stroke"
             app:bt_title="@string/photos" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
@@ -108,10 +108,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:bt_active="true"
-            app:bt_colorActive="@color/list_active"
+            app:bt_colorActive="@color/green_active"
             app:bt_colorInactive="@color/default_inactive"
             app:bt_icon="@drawable/ic_call"
-            app:bt_shape="@drawable/transition_background_drawable_list"
+            app:bt_shape="@drawable/call_background_stroke"
             app:bt_title="@string/call" />
 
     </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
@@ -146,8 +146,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:bt_active="true"
-            app:bt_colorActive="@color/home_active"
-            app:bt_colorInactive="@color/home_inactive"
+            app:bt_colorActive="@color/red_active"
+            app:bt_colorInactive="@color/red_inactive"
             app:bt_icon="@drawable/ic_home"
             app:bt_shape="@drawable/transition_background_drawable_home"
             app:bt_title="@string/home" />
@@ -156,8 +156,8 @@
             android:id="@+id/l_item_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bt_colorActive="@color/search_active"
-            app:bt_colorInactive="@color/search_inactive"
+            app:bt_colorActive="@color/blue_active"
+            app:bt_colorInactive="@color/blue_inactive"
             app:bt_icon="@drawable/ic_search"
             app:bt_shape="@drawable/transition_background_drawable_search"
             app:bt_title="@string/search" />
@@ -166,8 +166,8 @@
             android:id="@+id/l_item_profile_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bt_colorActive="@color/like_active"
-            app:bt_colorInactive="@color/like_inactive"
+            app:bt_colorActive="@color/blue_grey_active"
+            app:bt_colorInactive="@color/blue_grey_inactive"
             app:bt_icon="@drawable/ic_like"
             app:bt_shape="@drawable/transition_background_drawable_like"
             app:bt_title="@string/likes" />
@@ -176,8 +176,8 @@
             android:id="@+id/l_item_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bt_colorActive="@color/list_active"
-            app:bt_colorInactive="@color/list_inactive"
+            app:bt_colorActive="@color/green_active"
+            app:bt_colorInactive="@color/green_inactive"
             app:bt_icon="@drawable/ic_playlist"
             app:bt_shape="@drawable/transition_background_drawable_list"
             app:bt_title="@string/notification" />
@@ -186,8 +186,8 @@
             android:id="@+id/l_item_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bt_colorActive="@color/person_active"
-            app:bt_colorInactive="@color/person_inactive"
+            app:bt_colorActive="@color/purple_active"
+            app:bt_colorInactive="@color/purple_inactive"
             app:bt_icon="@drawable/ic_person"
             app:bt_shape="@drawable/transition_background_drawable_person"
             app:bt_title="@string/profile" />

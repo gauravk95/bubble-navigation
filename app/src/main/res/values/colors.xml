@@ -4,25 +4,34 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="home_active">#f44336</color>
-    <color name="person_active">#9c27b0</color>
-    <color name="search_active">#03a9f4</color>
-    <color name="list_active">#4caf50</color>
-    <color name="like_active">#607d8b</color>
+    <color name="red_active">#f44336</color>
+    <color name="purple_active">#9c27b0</color>
+    <color name="blue_active">#03a9f4</color>
+    <color name="green_active">#4caf50</color>
+    <color name="blue_grey_active">#607d8b</color>
+    <color name="yellow_active">#ffeb3b</color>
+    <color name="orange_active">#ff9800</color>
+    <color name="grey_active">#9e9e9e</color>
 
-    <color name="home_inactive">#e57373</color>
-    <color name="person_inactive">#ba68c8</color>
-    <color name="search_inactive">#64b5f6</color>
-    <color name="list_inactive">#81c784</color>
-    <color name="like_inactive">#90a4ae</color>
+    <color name="red_inactive">#e57373</color>
+    <color name="purple_inactive">#ba68c8</color>
+    <color name="blue_inactive">#64b5f6</color>
+    <color name="green_inactive">#81c784</color>
+    <color name="blue_grey_inactive">#90a4ae</color>
+    <color name="yellow_inactive">#fff176</color>
+    <color name="orange_inactive">#ffb74d</color>
+    <color name="gery_inactive">#e0e0e0</color>
 
     <color name="default_inactive">#78909c</color>
 
-    <color name="home_theme_bg_light">#ffebee</color>
-    <color name="person_theme_bg_light">#f3e5f5</color>
-    <color name="search_theme_bg_light">#e3f2fd</color>
-    <color name="list_theme_bg_light">#e8f5e9</color>
-    <color name="like_theme_bg_light">#eceff1</color>
+    <color name="red_bg_light">#ffebee</color>
+    <color name="purple_bg_light">#f3e5f5</color>
+    <color name="blue_bg_light">#e3f2fd</color>
+    <color name="green_bg_light">#e8f5e9</color>
+    <color name="blue_grey_bg_light">#eceff1</color>
+    <color name="yellow_bg_light">#fffde7</color>
+    <color name="orange_bg_light">#fff3e0</color>
+    <color name="grey_bg_light">#fafafa</color>
 
     <color name="white">#ffffff</color>
 
