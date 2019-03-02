@@ -1,21 +1,18 @@
 # Bubble Navigation
-[![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16) [ ![Download](https://api.bintray.com/packages/gauravk95/maven-repo/bubblenavigation/images/download.svg) ](https://bintray.com/gauravk95/maven-repo/bubblenavigation/_latestVersion) [![Build Status](https://travis-ci.org/gauravk95/bubble-navigation.svg?branch=master)](https://travis-ci.org/gauravk95/bubble-navigation)
+[![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16) [ ![Download](https://api.bintray.com/packages/gauravk95/maven-repo/bubblenavigation/images/download.svg) ](https://bintray.com/gauravk95/maven-repo/bubblenavigation/_latestVersion) [![Build Status](https://travis-ci.org/gauravk95/bubble-navigation.svg?branch=master)](https://travis-ci.org/gauravk95/bubble-navigation) [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Bubble%20Navigation-green.svg?style=flat )]( https://android-arsenal.com/details/1/7544 )
 
 🎉 A light-weight library to make beautiful Navigation Bar easily with ton of 🎨 customization option.
 
 ## Demos
 
-**BubbleNavigationConstraintView** in `spread` mode
+| FloatingTopBarActivity  | TopBarActivity  |
+| ------------- |:-------------:| 
+| <img src="https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/bn_two.gif" width="270" height="480"> |<img src="https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/bn_one.gif" width="270" height="480">|
 
-![Top](https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/sample_top.gif)
+|   BottomBarActivity    |    EqualBottomBarActivity  |
+| ------------- |:-------------:| 
+| <img src="https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/bn_four.gif" width="270" height="480"> |<img src="https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/bn_three.gif" width="270" height="480">|
 
-**BubbleNavigationLinearView** when used normally or **BubbleNavigationConstraintView** in `packed` mode
-
-![Bottom](https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/sample_bottom.gif)
-
-**BubbleNavigationLinearView** when distibuted equally
-
-![Middle](https://raw.githubusercontent.com/gauravk95/bubble-navigation/master/sample/sample_middle.gif)
 
 ### Features:
 - Support for API Level 16+ 
@@ -35,7 +32,7 @@ Check out the Sample app, to see how its implemented.
 * This library is available on JCenter. To use it, add the following to `build.gradle`
 ```gradle
 dependencies {
-    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.2'
+    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.3'
 }
 ```
 
@@ -118,10 +115,12 @@ This view can be used independently
 | bt_titleSize | Updates the Tilte Text Size in sp | 
 | bt_shape     | Sets the Background Drawable. Use **TransitionDrawable** to get fade in-out effect when toggling  | 
 | bt_showShapeAlways  |  If true and using Normal drawable, background shape remains visible always | 
+| bt_shapeColor  |  Changes the tint color of the shape. N/A when using TransitionDrawable or showShapeAlways is true. | 
 | bt_duration     |  Sets time duration for toggle animation to complete in ms | 
 | bt_padding     |  Sets the internal padding in dp | 
 
-
+ **Note:** If you are using normal drawable and the shapes remain same of each Navigation Item, set the same drawable for each item, with different bt_shapeColor to get a similar effect. This might help in lower memory usage and performace improvements. 
+ 
 ### Activity/Fragment
 In Java
 ```java
@@ -138,6 +137,13 @@ Or in Kotlin
             //navigation changed, do something here
         }
 ```
+| **Method**      | **Description**  |
+| ------------- | ------------- | 
+| `void setCurrentActiveItem(int position)`  | Changes the current active state for the navigation view | 
+| `void setTypeface(Typeface typeface)`   | Updates the typeface of the text  |
+| `void setNavigationChangeListener(BubbleNavigationChangeListener listener)` | Sets the navigation change listener|
+| `int getCurrentActiveItemPosition()` | Returns the current active position |
+
 ## Contribute
 
 Found a bug or have an idea/feature request or any other help needed. Please suggest or report them [here](https://github.com/gauravk95/bubble-navigation/issues)
