@@ -5,6 +5,7 @@
         <attr name="bt_iconWidth" format="dimension" />
         <attr name="bt_iconHeight" format="dimension" />
         <attr name="bt_shape" format="reference" />
+        <attr name="bt_shapeColor" format="color" />
         <attr name="bt_showShapeAlways" format="boolean" />
         <attr name="bt_title" format="string" />
         <attr name="bt_titleSize" format="dimension" />

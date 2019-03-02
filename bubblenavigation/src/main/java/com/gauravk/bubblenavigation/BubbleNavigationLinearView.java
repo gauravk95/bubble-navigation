@@ -33,6 +33,8 @@ import java.util.ArrayList;
  *
  * @author Gaurav Kumar
  */
+
+@SuppressWarnings("unused")
 public class BubbleNavigationLinearView extends LinearLayout implements View.OnClickListener {
 
     //constants
@@ -212,6 +214,19 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
      */
     public int getCurrentActiveItemPosition() {
         return currentActiveItemPosition;
+    }
+
+    /**
+     * Sets the current active item
+     *
+     * @param position current position change
+     */
+    public void setCurrentActiveItem(int position) {
+        if (currentActiveItemPosition == position) return;
+        if (position < 0 || position >= bubbleNavItems.size())
+            return;
+        BubbleToggleView btv = bubbleNavItems.get(position);
+        btv.performClick();
     }
 
     @Override

@@ -2,4 +2,5 @@
 <resources>
     <color name="default_inactive_shape_color">#e5e5e5</color>
     <color name="default_inactive_color">#212121</color>
+    <color name="default_shape_inactive_color">#888888</color>
 </resources>

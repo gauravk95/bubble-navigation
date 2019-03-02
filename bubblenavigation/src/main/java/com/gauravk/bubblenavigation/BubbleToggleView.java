@@ -93,9 +93,10 @@ public class BubbleToggleView extends LinearLayout {
      */
     private void init(Context context, @Nullable AttributeSet attrs) {
         //initialize default component
+        String title = "Title";
         Drawable icon = null;
         Drawable shape = null;
-        String title = "Title";
+        int shapeColor = Integer.MIN_VALUE;
         int colorActive = ViewUtils.getThemeAccentColor(context);
         int colorInactive = ContextCompat.getColor(context, R.color.default_inactive_color);
         float titleSize = context.getResources().getDimension(R.dimen.default_nav_item_text_size);
@@ -111,6 +112,7 @@ public class BubbleToggleView extends LinearLayout {
                 iconWidth = ta.getDimension(R.styleable.BubbleToggleView_bt_iconWidth, iconWidth);
                 iconHeight = ta.getDimension(R.styleable.BubbleToggleView_bt_iconHeight, iconHeight);
                 shape = ta.getDrawable(R.styleable.BubbleToggleView_bt_shape);
+                shapeColor = ta.getColor(R.styleable.BubbleToggleView_bt_shapeColor, shapeColor);
                 showShapeAlways = ta.getBoolean(R.styleable.BubbleToggleView_bt_showShapeAlways, false);
                 title = ta.getString(R.styleable.BubbleToggleView_bt_title);
                 titleSize = ta.getDimension(R.styleable.BubbleToggleView_bt_titleSize, titleSize);
@@ -138,6 +140,7 @@ public class BubbleToggleView extends LinearLayout {
         bubbleToggleItem.setShape(shape);
         bubbleToggleItem.setTitle(title);
         bubbleToggleItem.setTitleSize(titleSize);
+        bubbleToggleItem.setShapeColor(shapeColor);
         bubbleToggleItem.setColorActive(colorActive);
         bubbleToggleItem.setColorInactive(colorInactive);
         bubbleToggleItem.setIconWidth(iconWidth);
@@ -147,10 +150,12 @@ public class BubbleToggleView extends LinearLayout {
         setOrientation(HORIZONTAL);
         //set the gravity
         setGravity(Gravity.CENTER);
-
+        //set the internal padding
+        setPadding(internalPadding, internalPadding, internalPadding, internalPadding);
         post(new Runnable() {
             @Override
             public void run() {
+                //make sure the padding is added
                 setPadding(internalPadding, internalPadding, internalPadding, internalPadding);
             }
         });
@@ -217,6 +222,9 @@ public class BubbleToggleView extends LinearLayout {
             if (getBackground() instanceof TransitionDrawable) {
                 TransitionDrawable trans = (TransitionDrawable) getBackground();
                 trans.startTransition(0);
+            } else {
+                if (!showShapeAlways && bubbleToggleItem.getShapeColor()!= Integer.MIN_VALUE)
+                    ViewUtils.updateDrawableColor(bubbleToggleItem.getShape(), bubbleToggleItem.getShapeColor());
             }
         } else {
             ViewUtils.updateDrawableColor(iconView.getDrawable(), bubbleToggleItem.getColorInactive());
@@ -270,6 +278,9 @@ public class BubbleToggleView extends LinearLayout {
             TransitionDrawable trans = (TransitionDrawable) getBackground();
             trans.startTransition(animationDuration);
         } else {
+            //if not showing Shape Always and valid shape color present, use that as tint
+            if (!showShapeAlways && bubbleToggleItem.getShapeColor()!= Integer.MIN_VALUE)
+                ViewUtils.updateDrawableColor(bubbleToggleItem.getShape(), bubbleToggleItem.getShapeColor());
             setBackground(bubbleToggleItem.getShape());
         }
     }

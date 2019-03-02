@@ -6,8 +6,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 4
+        versionName "1.0.3"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -42,12 +42,12 @@ ext {
     libraryName = 'bubblenavigation'
     artifact = 'bubblenavigation'
 
-    libraryDescription = 'A light-weight library to make beautiful Bubble Navigation Bar with ease with ton of customization option.'
+    libraryDescription = 'A light-weight library to easily make beautiful Navigation Bar with ton of customization option.'
 
     siteUrl = 'https://github.com/gauravk95/bubble-navigation'
     gitUrl = 'https://github.com/gauravk95/bubble-navigation.git'
 
-    libraryVersion = '1.0.2'
+    libraryVersion = '1.0.3'
 
     developerId = 'gauravk95'
     developerName = 'Gaurav Kumar'

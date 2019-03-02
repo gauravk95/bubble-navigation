@@ -23,6 +23,7 @@ class BubbleToggleItem {
     private String title = "";
     private int colorActive = Color.BLUE;
     private int colorInactive = Color.BLACK;
+    private int shapeColor = Integer.MIN_VALUE;
 
     private float titleSize;
     private float iconWidth, iconHeight;
@@ -44,6 +45,14 @@ class BubbleToggleItem {
 
     void setShape(Drawable shape) {
         this.shape = shape;
+    }
+
+    int getShapeColor() {
+        return shapeColor;
+    }
+
+    void setShapeColor(int shapeColor) {
+        this.shapeColor = shapeColor;
     }
 
     String getTitle() {
