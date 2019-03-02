@@ -21,6 +21,7 @@
         <activity android:name=".BottomBarActivity" />
         <activity android:name=".TopBarActivity" />
         <activity android:name=".EqualBottomBarActivity" />
+        <activity android:name=".FloatingTopBarActivity" />
     </application>
 
 </manifest>

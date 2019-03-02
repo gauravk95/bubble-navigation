@@ -16,6 +16,10 @@ class MainActivity : AppCompatActivity() {
             launchTopBarActivity()
         }
 
+        open_top_float_navigation_bar.setOnClickListener {
+            launchFloatingBarActivity()
+        }
+
         open_bottom_equal_navigation_bar.setOnClickListener {
             launchEqualBarActivity()
         }
@@ -27,6 +31,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun launchBottomBarActivity() {
         val intent = Intent(this, BottomBarActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun launchFloatingBarActivity() {
+        val intent = Intent(this, FloatingTopBarActivity::class.java)
         startActivity(intent)
     }
 

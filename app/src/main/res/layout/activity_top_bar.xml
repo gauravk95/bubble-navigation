@@ -28,7 +28,6 @@
             app:bt_colorActive="@color/orange_active"
             app:bt_colorInactive="@color/orange_inactive"
             app:bt_icon="@drawable/ic_restaurant"
-            app:bt_padding="8dp"
             app:bt_shape="@drawable/transition_background_drawable_default"
             app:bt_title="@string/restaurant" />
 

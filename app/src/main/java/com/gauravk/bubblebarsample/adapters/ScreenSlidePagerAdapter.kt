@@ -1,8 +1,9 @@
-package com.gauravk.bubblebarsample
+package com.gauravk.bubblebarsample.adapters
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
+import com.gauravk.bubblebarsample.fragment.ScreenSlidePageFragment
 
 /**
  * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in

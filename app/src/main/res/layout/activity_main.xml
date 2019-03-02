@@ -6,6 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/title_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green_active"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:padding="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="30sp"/>
+    </LinearLayout>
+
     <Button
         android:id="@+id/open_top_navigation_bar"
         android:layout_width="250dp"
@@ -14,14 +34,29 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="@drawable/home_background_oval"
+        android:background="@drawable/home_background_stroke"
         android:padding="16dp"
-        android:elevation="2dp"
         android:text="Top Navigation Bar"
+        app:layout_constraintBottom_toTopOf="@+id/open_top_float_navigation_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_text" />
+
+    <Button
+        android:id="@+id/open_top_float_navigation_bar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/search_background_stroke"
+        android:padding="16dp"
+        android:text="Float Top Navigation Bar"
         app:layout_constraintBottom_toTopOf="@+id/open_bottom_equal_navigation_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/open_top_navigation_bar" />
 
     <Button
         android:id="@+id/open_bottom_equal_navigation_bar"
@@ -31,14 +66,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="@drawable/list_background_oval"
+        android:background="@drawable/search_background_stroke"
         android:padding="16dp"
-        android:elevation="2dp"
-        android:text="Equal Navigation Bar"
+        android:text="Equal Bottom Navigation Bar"
         app:layout_constraintBottom_toTopOf="@+id/open_bottom_navigation_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/open_top_navigation_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/open_top_float_navigation_bar" />
 
     <Button
         android:id="@+id/open_bottom_navigation_bar"
@@ -48,9 +82,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="@drawable/search_background_oval"
+        android:background="@drawable/call_background_stroke"
         android:padding="16dp"
-        android:elevation="2dp"
         android:text="Bottom Navigation Bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
