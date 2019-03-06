@@ -57,11 +57,14 @@ dependencies {
             android:id="@+id/c_item_rest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:bt_active="true"
             app:bt_colorActive="@color/search_active"
             app:bt_colorInactive="@color/search_inactive"
             app:bt_icon="@drawable/ic_restaurant"
             app:bt_shape="@drawable/transition_background_drawable_restaurant"
-            app:bt_title="@string/restaurant" />
+            app:bt_title="@string/restaurant"
+            app:bt_padding="@dimen/internal_padding"
+            app:bt_titlePadding="@dimen/title_padding" />
 
          <!-- Add more child items here - max upto 5 -->
     
@@ -95,7 +98,9 @@ dependencies {
             app:bt_colorInactive="@color/home_inactive"
             app:bt_icon="@drawable/ic_home"
             app:bt_shape="@drawable/transition_background_drawable_home"
-            app:bt_title="@string/home" />
+            app:bt_title="@string/home"
+            app:bt_padding="@dimen/internal_padding"
+            app:bt_titlePadding="@dimen/title_padding" />
   
     <!-- Add more child items here - max upto 5 -->
     
@@ -123,6 +128,7 @@ This view can be used independently
 | bt_shapeColor  |  Changes the tint color of the shape. N/A when using TransitionDrawable or showShapeAlways is true. | 
 | bt_duration     |  Sets time duration for toggle animation to complete in ms | 
 | bt_padding     |  Sets the internal padding in dp | 
+| bt_titlePadding | Sets the title padding in dp | 
 
  **Note:** If you are using normal drawable and the shapes remain same of each Navigation Item, set the same drawable for each item, with different bt_shapeColor to get a similar effect. This might help in lower memory usage and performace improvements. 
  
