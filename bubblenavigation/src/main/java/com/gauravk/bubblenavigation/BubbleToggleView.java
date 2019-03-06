@@ -55,7 +55,6 @@ public class BubbleToggleView extends LinearLayout {
 
     private float maxTitleWidth;
     private float measuredTitleWidth;
-    private int internalPadding;
 
     /**
      * Constructors
@@ -103,7 +102,8 @@ public class BubbleToggleView extends LinearLayout {
         maxTitleWidth = context.getResources().getDimension(R.dimen.default_nav_item_title_max_width);
         float iconWidth = context.getResources().getDimension(R.dimen.default_icon_size);
         float iconHeight = context.getResources().getDimension(R.dimen.default_icon_size);
-        internalPadding = (int) context.getResources().getDimension(R.dimen.default_nav_item_padding);
+        int internalPadding = (int) context.getResources().getDimension(R.dimen.default_nav_item_padding);
+        int titlePadding = (int) context.getResources().getDimension(R.dimen.default_nav_item_text_padding);
 
         if (attrs != null) {
             TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.BubbleToggleView, 0, 0);
@@ -121,6 +121,7 @@ public class BubbleToggleView extends LinearLayout {
                 isActive = ta.getBoolean(R.styleable.BubbleToggleView_bt_active, false);
                 animationDuration = ta.getInteger(R.styleable.BubbleToggleView_bt_duration, DEFAULT_ANIM_DURATION);
                 internalPadding = (int) ta.getDimension(R.styleable.BubbleToggleView_bt_padding, internalPadding);
+                titlePadding = (int) ta.getDimension(R.styleable.BubbleToggleView_bt_titlePadding, titlePadding);
             } finally {
                 ta.recycle();
             }
@@ -140,23 +141,33 @@ public class BubbleToggleView extends LinearLayout {
         bubbleToggleItem.setShape(shape);
         bubbleToggleItem.setTitle(title);
         bubbleToggleItem.setTitleSize(titleSize);
+        bubbleToggleItem.setTitlePadding(titlePadding);
         bubbleToggleItem.setShapeColor(shapeColor);
         bubbleToggleItem.setColorActive(colorActive);
         bubbleToggleItem.setColorInactive(colorInactive);
         bubbleToggleItem.setIconWidth(iconWidth);
         bubbleToggleItem.setIconHeight(iconHeight);
+        bubbleToggleItem.setInternalPadding(internalPadding);
 
         //set the orientation
         setOrientation(HORIZONTAL);
         //set the gravity
         setGravity(Gravity.CENTER);
         //set the internal padding
-        setPadding(internalPadding, internalPadding, internalPadding, internalPadding);
+        setPadding(
+                bubbleToggleItem.getInternalPadding(),
+                bubbleToggleItem.getInternalPadding(),
+                bubbleToggleItem.getInternalPadding(),
+                bubbleToggleItem.getInternalPadding());
         post(new Runnable() {
             @Override
             public void run() {
                 //make sure the padding is added
-                setPadding(internalPadding, internalPadding, internalPadding, internalPadding);
+                setPadding(
+                        bubbleToggleItem.getInternalPadding(),
+                        bubbleToggleItem.getInternalPadding(),
+                        bubbleToggleItem.getInternalPadding(),
+                        bubbleToggleItem.getInternalPadding());
             }
         });
 
@@ -187,8 +198,7 @@ public class BubbleToggleView extends LinearLayout {
         //get the current measured title width
         titleView.setVisibility(VISIBLE);
         //update the margin of the text view
-        int padding = (int) context.getResources().getDimension(R.dimen.default_nav_item_text_margin);
-        titleView.setPadding(padding, 0, padding, 0);
+        titleView.setPadding(bubbleToggleItem.getTitlePadding(), 0, bubbleToggleItem.getTitlePadding(), 0);
         //measure the content width
         titleView.measure(0, 0);       //must call measure!
         measuredTitleWidth = titleView.getMeasuredWidth();  //get width
@@ -205,6 +215,10 @@ public class BubbleToggleView extends LinearLayout {
         //set the initial state
         setInitialState(isActive);
     }
+
+    /////////////////////////////////
+    // PUBLIC METHODS
+    ////////////////////////////////
 
     /**
      * Updates the Initial State
@@ -223,7 +237,7 @@ public class BubbleToggleView extends LinearLayout {
                 TransitionDrawable trans = (TransitionDrawable) getBackground();
                 trans.startTransition(0);
             } else {
-                if (!showShapeAlways && bubbleToggleItem.getShapeColor()!= Integer.MIN_VALUE)
+                if (!showShapeAlways && bubbleToggleItem.getShapeColor() != Integer.MIN_VALUE)
                     ViewUtils.updateDrawableColor(bubbleToggleItem.getShape(), bubbleToggleItem.getShapeColor());
             }
         } else {
@@ -237,10 +251,6 @@ public class BubbleToggleView extends LinearLayout {
             }
         }
     }
-
-    /////////////////////////////////
-    // PUBLIC METHODS
-    ////////////////////////////////
 
     /**
      * Toggles between Active and Inactive state
@@ -279,7 +289,7 @@ public class BubbleToggleView extends LinearLayout {
             trans.startTransition(animationDuration);
         } else {
             //if not showing Shape Always and valid shape color present, use that as tint
-            if (!showShapeAlways && bubbleToggleItem.getShapeColor()!= Integer.MIN_VALUE)
+            if (!showShapeAlways && bubbleToggleItem.getShapeColor() != Integer.MIN_VALUE)
                 ViewUtils.updateDrawableColor(bubbleToggleItem.getShape(), bubbleToggleItem.getShapeColor());
             setBackground(bubbleToggleItem.getShape());
         }

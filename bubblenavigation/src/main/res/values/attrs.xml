@@ -14,6 +14,7 @@
         <attr name="bt_active" format="boolean" />
         <attr name="bt_duration" format="integer" />
         <attr name="bt_padding" format="dimension" />
+        <attr name="bt_titlePadding" format="dimension" />
     </declare-styleable>
     <declare-styleable name="BubbleNavigationConstraintView">
         <attr name="bnc_mode">

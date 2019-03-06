@@ -28,6 +28,9 @@ class BubbleToggleItem {
     private float titleSize;
     private float iconWidth, iconHeight;
 
+    private int titlePadding;
+    private int internalPadding;
+
     BubbleToggleItem() {
     }
 
@@ -101,5 +104,21 @@ class BubbleToggleItem {
 
     void setIconHeight(float iconHeight) {
         this.iconHeight = iconHeight;
+    }
+
+    int getTitlePadding() {
+        return titlePadding;
+    }
+
+    void setTitlePadding(int titlePadding) {
+        this.titlePadding = titlePadding;
+    }
+
+    int getInternalPadding() {
+        return internalPadding;
+    }
+
+    void setInternalPadding(int internalPadding) {
+        this.internalPadding = internalPadding;
     }
 }

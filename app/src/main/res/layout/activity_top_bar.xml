@@ -28,8 +28,10 @@
             app:bt_colorActive="@color/orange_active"
             app:bt_colorInactive="@color/orange_inactive"
             app:bt_icon="@drawable/ic_restaurant"
+            app:bt_padding="12dp"
             app:bt_shape="@drawable/transition_background_drawable_default"
-            app:bt_title="@string/restaurant" />
+            app:bt_title="@string/restaurant"
+            app:bt_titlePadding="8dp" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/c_item_room"
@@ -38,8 +40,10 @@
             app:bt_colorActive="@color/red_active"
             app:bt_colorInactive="@color/red_inactive"
             app:bt_icon="@drawable/ic_room"
+            app:bt_padding="12dp"
             app:bt_shape="@drawable/transition_background_drawable_default"
-            app:bt_title="@string/room" />
+            app:bt_title="@string/room"
+            app:bt_titlePadding="8dp" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/c_item_happy"
@@ -48,8 +52,10 @@
             app:bt_colorActive="@color/green_active"
             app:bt_colorInactive="@color/green_inactive"
             app:bt_icon="@drawable/ic_happy"
+            app:bt_padding="12dp"
             app:bt_shape="@drawable/transition_background_drawable_default"
-            app:bt_title="@string/happy" />
+            app:bt_title="@string/happy"
+            app:bt_titlePadding="8dp" />
     </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
 
     <android.support.v4.view.ViewPager
