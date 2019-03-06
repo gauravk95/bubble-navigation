@@ -6,7 +6,7 @@
 [![Android Weekly]( https://img.shields.io/badge/Android%20Weekly-%23351-blue.svg )]( http://androidweekly.net/issues/issue-351 ) 
 [![AwesomeAndroid](https://img.shields.io/badge/Awesome_Android-BubbleNavigation-purple.svg?style=flat)](https://android.libhunt.com/bubble-navigation-alternatives)
 
-🎉 A light-weight library to make beautiful Navigation Bar easily with ton of 🎨 customization option.
+🎉 A light-weight library to easily make beautiful Navigation Bars with a ton of 🎨 customization options.
 
 ## Demos
 
@@ -21,7 +21,7 @@
 
 ### Features:
 - Support for API Level 16+ 
-- Higly customizable
+- Highly customizable
 - Light weight and easy-to-use
 - Supports TransitionDrawable for cool state changes
 - 2 types of NavigationView for different use cases
@@ -107,11 +107,11 @@ dependencies {
     </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
 ```
 #### Using BubbleToggleView
-BuggleToogleView is designed to work as a child component for the `BubbleNavigationLinearView and BubbleNavigationConstraintView`. 
-This view can be used independently 
-- you may use it for your own implementation of NavigationBar 
-- create new UI components
-- or simply use it as toggle view
+BubbleToggleView is designed to work as a child component for the `BubbleNavigationLinearView and BubbleNavigationConstraintView`. 
+This view can be used independently for:
+- Custom implementation of NavigationBar 
+- Creation of new UI components
+- ToggleView
 
 | **attr**      | **Description**  |
 | ------------- | ------------- | 
@@ -130,7 +130,7 @@ This view can be used independently
 | bt_padding     |  Sets the internal padding in dp | 
 | bt_titlePadding | Sets the title padding in dp | 
 
- **Note:** If you are using normal drawable and the shapes remain same of each Navigation Item, set the same drawable for each item, with different bt_shapeColor to get a similar effect. This might help in lower memory usage and performace improvements. 
+ **Note:** Normal drawables may retain the shape of each Navigation item. Setting the same drawable for each item with different bt_shapeColor properties produces a similar effect while lowering memory usage and improving performance. 
  
 ### Activity/Fragment
 In Java
@@ -157,13 +157,13 @@ Or in Kotlin
 
 ## Contribute
 
-Found a bug or have an idea/feature request or any other help needed. Please suggest or report them [here](https://github.com/gauravk95/bubble-navigation/issues)
+Users are welcome to suggest ideas or feature requests, or report bugs and issues [here](https://github.com/gauravk95/bubble-navigation/issues)
 
 I am always open to new suggestions and good contributions.
 
 ## Contact
 
-Have a cool project in mind? Want to collaborate?  Shoot me a mail at gauravkcs50@gmail.com
+Have a cool project in mind? Want to collaborate?  Shoot me an e-mail at gauravkcs50@gmail.com
 
 ## License:
 ```
