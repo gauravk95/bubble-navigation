@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.EqualBottomBarFragment">
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.gauravk.bubblenavigation.BubbleNavigationLinearView
+        android:id="@+id/equal_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/rounded_rect_white"
+        android:elevation="8dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/m_item_shop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:bt_colorActive="@color/blue_active"
+            app:bt_colorInactive="@color/default_inactive"
+            app:bt_icon="@drawable/ic_shop"
+            app:bt_shape="@drawable/shop_background_stroke"
+            app:bt_title="@string/shop" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/m_item_photos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:bt_colorActive="@color/purple_active"
+            app:bt_colorInactive="@color/default_inactive"
+            app:bt_icon="@drawable/ic_photos"
+            app:bt_shape="@drawable/photos_background_stroke"
+            app:bt_title="@string/photos" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/m_item_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:bt_colorActive="@color/green_active"
+            app:bt_colorInactive="@color/default_inactive"
+            app:bt_icon="@drawable/ic_call"
+            app:bt_shape="@drawable/call_background_stroke"
+            app:bt_title="@string/call" />
+
+    </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
+
+</android.support.constraint.ConstraintLayout>

@@ -136,6 +136,9 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
      * Makes sure that ONLY ONE child {@link #bubbleNavItems} is active
      */
     private void setInitialActiveState() {
+
+        if (bubbleNavItems == null) return;
+
         boolean foundActiveElement = false;
         for (int i = 0; i < bubbleNavItems.size(); i++) {
             if (bubbleNavItems.get(i).isActive() && !foundActiveElement) {
@@ -222,9 +225,17 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
      * @param position current position change
      */
     public void setCurrentActiveItem(int position) {
+
+        if (bubbleNavItems == null) {
+            currentActiveItemPosition = position;
+            return;
+        }
+
         if (currentActiveItemPosition == position) return;
+
         if (position < 0 || position >= bubbleNavItems.size())
             return;
+
         BubbleToggleView btv = bubbleNavItems.get(position);
         btv.performClick();
     }

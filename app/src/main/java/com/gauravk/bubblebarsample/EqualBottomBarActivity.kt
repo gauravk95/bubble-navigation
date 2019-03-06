@@ -2,9 +2,7 @@ package com.gauravk.bubblebarsample
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.gauravk.bubblebarsample.adapters.ScreenSlidePagerAdapter
-import com.gauravk.bubblebarsample.fragment.ScreenSlidePageFragment
-import kotlinx.android.synthetic.main.activity_equal_bottom_bar.*
+import com.gauravk.bubblebarsample.fragment.EqualBottomBarFragment
 
 class EqualBottomBarActivity : AppCompatActivity() {
 
@@ -12,21 +10,17 @@ class EqualBottomBarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_equal_bottom_bar)
 
-        val fragList = ArrayList<ScreenSlidePageFragment>()
-        fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.shop), R.color.blue_inactive))
-        fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.photos), R.color.purple_inactive))
-        fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.call), R.color.green_inactive))
-        val pagerAdapter = ScreenSlidePagerAdapter(fragList, supportFragmentManager)
-        view_pager.adapter = pagerAdapter
-        //disable swipe
-        view_pager.setOnTouchListener { _, _ ->
-            return@setOnTouchListener true
-        }
-
-        equal_navigation_bar.setNavigationChangeListener { _, position ->
-            view_pager.setCurrentItem(position, true)
+        var fragment = supportFragmentManager.findFragmentById(R.id.content_frame) as EqualBottomBarFragment?
+        if (fragment == null) {
+            fragment = EqualBottomBarFragment()
+            addFragment(fragment, R.id.content_frame)
         }
     }
 
+    private fun addFragment(fragment: EqualBottomBarFragment, id: Int) {
+        val ft = supportFragmentManager.beginTransaction()
+        ft.add(id, fragment)
+        ft.commit()
+    }
 
 }

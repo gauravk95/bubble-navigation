@@ -186,7 +186,7 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
             int id = bubbleNavItems.get(i).getId();
             chainIdsList[i] = id;
             chainWeightList[i] = 0.0f;
-            //set the top and bottom constraint for eact items
+            //set the top and bottom constraint for each items
             constraintSet.connect(id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, 0);
             constraintSet.connect(id, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM, 0);
         }
@@ -205,6 +205,9 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
      * Makes sure that ONLY ONE child {@link #bubbleNavItems} is active
      */
     private void setInitialActiveState() {
+
+        if (bubbleNavItems == null) return;
+
         boolean foundActiveElement = false;
         for (int i = 0; i < bubbleNavItems.size(); i++) {
             if (bubbleNavItems.get(i).isActive() && !foundActiveElement) {
@@ -287,12 +290,21 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
 
     /**
      * Sets the current active item
+     *
      * @param position current position change
      */
     public void setCurrentActiveItem(int position) {
+
+        if (bubbleNavItems == null) {
+            currentActiveItemPosition = position;
+            return;
+        }
+
         if (currentActiveItemPosition == position) return;
+
         if (position < 0 || position >= bubbleNavItems.size())
             return;
+
         BubbleToggleView btv = bubbleNavItems.get(position);
         btv.performClick();
     }
