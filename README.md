@@ -163,7 +163,11 @@ I am always open to new suggestions and good contributions.
 
 ## Contact
 
-Have a cool project in mind? Want to collaborate?  Shoot me an e-mail at gauravkcs50@gmail.com
+I am available for new projects and/or opportunities! 
+
+Have anything to say? Looking for someone to build new apps? Have an exiciting product and want to strenthen your team?
+
+Feel free to reach out to me at gauravkcs50@gmail.com
 
 ## License:
 ```
