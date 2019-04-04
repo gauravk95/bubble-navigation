@@ -35,7 +35,7 @@ import java.util.ArrayList;
  */
 
 @SuppressWarnings("unused")
-public class BubbleNavigationLinearView extends LinearLayout implements View.OnClickListener {
+public class BubbleNavigationLinearView extends LinearLayout implements View.OnClickListener, IBubbleNavigation {
 
     //constants
     private static final String TAG = "BNLView";
@@ -46,6 +46,8 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
     private BubbleNavigationChangeListener navigationChangeListener;
 
     private int currentActiveItemPosition = 0;
+
+    private Typeface currentTypeface;
 
     /**
      * Constructors
@@ -130,6 +132,9 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
         setClickListenerForItems();
         setInitialActiveState();
         updateMeasurementForItems();
+
+        if (currentTypeface != null)
+            setTypeface(currentTypeface);
     }
 
     /**
@@ -196,6 +201,7 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
      *
      * @param navigationChangeListener sets the passed parameters as listener
      */
+    @Override
     public void setNavigationChangeListener(BubbleNavigationChangeListener navigationChangeListener) {
         this.navigationChangeListener = navigationChangeListener;
     }
@@ -205,9 +211,14 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
      *
      * @param typeface to be used
      */
+    @Override
     public void setTypeface(Typeface typeface) {
-        for (BubbleToggleView btv : bubbleNavItems)
-            btv.setTitleTypeface(typeface);
+        if (bubbleNavItems != null) {
+            for (BubbleToggleView btv : bubbleNavItems)
+                btv.setTitleTypeface(typeface);
+        } else {
+            currentTypeface = typeface;
+        }
     }
 
     /**
@@ -215,6 +226,7 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
      *
      * @return active item position
      */
+    @Override
     public int getCurrentActiveItemPosition() {
         return currentActiveItemPosition;
     }
@@ -224,6 +236,7 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
      *
      * @param position current position change
      */
+    @Override
     public void setCurrentActiveItem(int position) {
 
         if (bubbleNavItems == null) {

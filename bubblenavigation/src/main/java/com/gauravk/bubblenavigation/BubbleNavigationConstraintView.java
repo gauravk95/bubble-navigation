@@ -36,7 +36,7 @@ import java.util.ArrayList;
  */
 
 @SuppressWarnings("unused")
-public class BubbleNavigationConstraintView extends ConstraintLayout implements View.OnClickListener {
+public class BubbleNavigationConstraintView extends ConstraintLayout implements View.OnClickListener, IBubbleNavigation {
 
     enum DisplayMode {
         SPREAD,
@@ -56,6 +56,8 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
 
     //default display mode
     private DisplayMode displayMode = DisplayMode.SPREAD;
+
+    private Typeface currentTypeface;
 
     /**
      * Constructors
@@ -170,6 +172,9 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
         setInitialActiveState();
         updateMeasurementForItems();
         createChains();
+
+        if (currentTypeface != null)
+            setTypeface(currentTypeface);
     }
 
     /**
@@ -265,6 +270,7 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
      *
      * @param navigationChangeListener sets the passed parameters as listener
      */
+    @Override
     public void setNavigationChangeListener(BubbleNavigationChangeListener navigationChangeListener) {
         this.navigationChangeListener = navigationChangeListener;
     }
@@ -274,9 +280,14 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
      *
      * @param typeface to be used
      */
+    @Override
     public void setTypeface(Typeface typeface) {
-        for (BubbleToggleView btv : bubbleNavItems)
-            btv.setTitleTypeface(typeface);
+        if (bubbleNavItems != null) {
+            for (BubbleToggleView btv : bubbleNavItems)
+                btv.setTitleTypeface(typeface);
+        } else {
+            currentTypeface = typeface;
+        }
     }
 
     /**
@@ -284,6 +295,7 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
      *
      * @return active item position
      */
+    @Override
     public int getCurrentActiveItemPosition() {
         return currentActiveItemPosition;
     }
@@ -293,6 +305,7 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
      *
      * @param position current position change
      */
+    @Override
     public void setCurrentActiveItem(int position) {
 
         if (bubbleNavItems == null) {
