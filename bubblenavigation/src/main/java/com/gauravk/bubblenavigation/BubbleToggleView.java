@@ -247,6 +247,9 @@ public class BubbleToggleView extends LinearLayout {
             if (!showShapeAlways) {
                 if (!(getBackground() instanceof TransitionDrawable)) {
                     setBackground(null);
+                } else {
+                    TransitionDrawable trans = (TransitionDrawable) getBackground();
+                    trans.resetTransition();
                 }
             }
         }

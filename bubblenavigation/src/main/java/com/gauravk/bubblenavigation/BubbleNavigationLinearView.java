@@ -46,6 +46,7 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
     private BubbleNavigationChangeListener navigationChangeListener;
 
     private int currentActiveItemPosition = 0;
+    private boolean loadPreviousState;
 
     private Typeface currentTypeface;
 
@@ -72,6 +73,7 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
         Bundle bundle = new Bundle();
         bundle.putParcelable("superState", super.onSaveInstanceState());
         bundle.putInt("current_item", currentActiveItemPosition);
+        bundle.putBoolean("load_prev_state", true);
         return bundle;
     }
 
@@ -80,6 +82,7 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
         if (state instanceof Bundle) {
             Bundle bundle = (Bundle) state;
             currentActiveItemPosition = bundle.getInt("current_item");
+            loadPreviousState = bundle.getBoolean("load_prev_state");
             state = bundle.getParcelable("superState");
         }
         super.onRestoreInstanceState(state);
@@ -145,18 +148,25 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
         if (bubbleNavItems == null) return;
 
         boolean foundActiveElement = false;
-        for (int i = 0; i < bubbleNavItems.size(); i++) {
-            if (bubbleNavItems.get(i).isActive() && !foundActiveElement) {
-                foundActiveElement = true;
-                currentActiveItemPosition = i;
-            } else {
+
+        // find the initial state
+        if (!loadPreviousState) {
+            for (int i = 0; i < bubbleNavItems.size(); i++) {
+                if (bubbleNavItems.get(i).isActive() && !foundActiveElement) {
+                    foundActiveElement = true;
+                    currentActiveItemPosition = i;
+                } else {
+                    bubbleNavItems.get(i).setInitialState(false);
+                }
+            }
+        } else {
+            for (int i = 0; i < bubbleNavItems.size(); i++) {
                 bubbleNavItems.get(i).setInitialState(false);
             }
         }
-
-        if (!foundActiveElement) {
+        //set the active element
+        if (!foundActiveElement)
             bubbleNavItems.get(currentActiveItemPosition).setInitialState(true);
-        }
     }
 
     /**
