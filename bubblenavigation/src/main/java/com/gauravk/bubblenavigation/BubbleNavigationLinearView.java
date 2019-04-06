@@ -21,12 +21,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * BubbleNavigationLinearView
@@ -49,6 +51,8 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
     private boolean loadPreviousState;
 
     private Typeface currentTypeface;
+
+    private SparseArray<String> pendingBadgeUpdate;
 
     /**
      * Constructors
@@ -136,8 +140,16 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
         setInitialActiveState();
         updateMeasurementForItems();
 
+        //update the typeface
         if (currentTypeface != null)
             setTypeface(currentTypeface);
+
+        //update the badge count
+        if (pendingBadgeUpdate != null && bubbleNavItems != null) {
+            for (int i = 0; i < pendingBadgeUpdate.size(); i++)
+                setBadgeValue(pendingBadgeUpdate.keyAt(i), pendingBadgeUpdate.valueAt(i));
+            pendingBadgeUpdate.clear();
+        }
     }
 
     /**
@@ -261,6 +273,25 @@ public class BubbleNavigationLinearView extends LinearLayout implements View.OnC
 
         BubbleToggleView btv = bubbleNavItems.get(position);
         btv.performClick();
+    }
+
+    /**
+     * Sets the badge value
+     *
+     * @param position current position change
+     * @param value    value to be set in the badge
+     */
+    @Override
+    public void setBadgeValue(int position, String value) {
+        if (bubbleNavItems != null) {
+            BubbleToggleView btv = bubbleNavItems.get(position);
+            if (btv != null)
+                btv.setBadgeText(value);
+        } else {
+            if (pendingBadgeUpdate == null)
+                pendingBadgeUpdate = new SparseArray<>();
+            pendingBadgeUpdate.put(position, value);
+        }
     }
 
     @Override

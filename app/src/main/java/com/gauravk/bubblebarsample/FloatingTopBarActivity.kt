@@ -16,6 +16,8 @@ class FloatingTopBarActivity : AppCompatActivity() {
         setContentView(R.layout.activity_floating_top_bar)
 
         floating_top_bar_navigation.setTypeface(Typeface.createFromAsset(assets, "rubik.ttf"))
+        floating_top_bar_navigation.setBadgeValue(0, "3")
+        floating_top_bar_navigation.setBadgeValue(1, "9+") //invisible badge
 
         val fragList = ArrayList<ScreenSlidePageFragment>()
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.home), R.color.red_inactive))

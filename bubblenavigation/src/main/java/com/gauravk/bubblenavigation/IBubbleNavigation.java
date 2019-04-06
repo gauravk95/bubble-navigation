@@ -12,4 +12,6 @@ public interface IBubbleNavigation {
     int getCurrentActiveItemPosition();
 
     void setCurrentActiveItem(int position);
+
+    void setBadgeValue(int position, String value);
 }

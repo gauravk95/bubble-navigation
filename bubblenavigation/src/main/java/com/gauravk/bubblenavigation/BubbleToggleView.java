@@ -24,12 +24,13 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.gauravk.bubblenavigation.util.ViewUtils;
 
@@ -38,7 +39,7 @@ import com.gauravk.bubblenavigation.util.ViewUtils;
  *
  * @author Gaurav Kumar
  */
-public class BubbleToggleView extends LinearLayout {
+public class BubbleToggleView extends RelativeLayout {
 
     private static final String TAG = "BNI_View";
     private static final int DEFAULT_ANIM_DURATION = 300;
@@ -49,6 +50,7 @@ public class BubbleToggleView extends LinearLayout {
 
     private ImageView iconView;
     private TextView titleView;
+    private TextView badgeView;
 
     private int animationDuration;
     private boolean showShapeAlways;
@@ -105,6 +107,11 @@ public class BubbleToggleView extends LinearLayout {
         int internalPadding = (int) context.getResources().getDimension(R.dimen.default_nav_item_padding);
         int titlePadding = (int) context.getResources().getDimension(R.dimen.default_nav_item_text_padding);
 
+        int badgeTextSize = (int) context.getResources().getDimension(R.dimen.default_nav_item_badge_text_size);
+        int badgeBackgroundColor = ContextCompat.getColor(context, R.color.default_badge_background_color);
+        int badgeTextColor = ContextCompat.getColor(context, R.color.default_badge_text_color);
+        String badgeText = null;
+
         if (attrs != null) {
             TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.BubbleToggleView, 0, 0);
             try {
@@ -122,6 +129,10 @@ public class BubbleToggleView extends LinearLayout {
                 animationDuration = ta.getInteger(R.styleable.BubbleToggleView_bt_duration, DEFAULT_ANIM_DURATION);
                 internalPadding = (int) ta.getDimension(R.styleable.BubbleToggleView_bt_padding, internalPadding);
                 titlePadding = (int) ta.getDimension(R.styleable.BubbleToggleView_bt_titlePadding, titlePadding);
+                badgeTextSize = (int) ta.getDimension(R.styleable.BubbleToggleView_bt_badgeTextSize, badgeTextSize);
+                badgeBackgroundColor = ta.getColor(R.styleable.BubbleToggleView_bt_badgeBackgroundColor, badgeBackgroundColor);
+                badgeTextColor = ta.getColor(R.styleable.BubbleToggleView_bt_badgeTextColor, badgeTextColor);
+                badgeText = ta.getString(R.styleable.BubbleToggleView_bt_badgeText);
             } finally {
                 ta.recycle();
             }
@@ -148,11 +159,14 @@ public class BubbleToggleView extends LinearLayout {
         bubbleToggleItem.setIconWidth(iconWidth);
         bubbleToggleItem.setIconHeight(iconHeight);
         bubbleToggleItem.setInternalPadding(internalPadding);
+        bubbleToggleItem.setBadgeText(badgeText);
+        bubbleToggleItem.setBadgeBackgroundColor(badgeBackgroundColor);
+        bubbleToggleItem.setBadgeTextColor(badgeTextColor);
+        bubbleToggleItem.setBadgeTextSize(badgeTextSize);
 
-        //set the orientation
-        setOrientation(HORIZONTAL);
         //set the gravity
         setGravity(Gravity.CENTER);
+
         //set the internal padding
         setPadding(
                 bubbleToggleItem.getInternalPadding(),
@@ -184,17 +198,25 @@ public class BubbleToggleView extends LinearLayout {
 
         //create the nav icon
         iconView = new ImageView(context);
-        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams((int) bubbleToggleItem.getIconWidth(), (int) bubbleToggleItem.getIconHeight());
-        iconView.setLayoutParams(lp);
+        iconView.setId(ViewCompat.generateViewId());
+        LayoutParams lpIcon = new LayoutParams((int) bubbleToggleItem.getIconWidth(), (int) bubbleToggleItem.getIconHeight());
+        lpIcon.addRule(RelativeLayout.CENTER_VERTICAL, RelativeLayout.TRUE);
+        iconView.setLayoutParams(lpIcon);
         iconView.setImageDrawable(bubbleToggleItem.getIcon());
 
         //create the nav title
         titleView = new TextView(context);
+        LayoutParams lpTitle = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        lpTitle.addRule(RelativeLayout.CENTER_VERTICAL, RelativeLayout.TRUE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+            lpTitle.addRule(RelativeLayout.END_OF, iconView.getId());
+        else
+            lpTitle.addRule(RelativeLayout.RIGHT_OF, iconView.getId());
+        titleView.setLayoutParams(lpTitle);
         titleView.setSingleLine(true);
         titleView.setTextColor(bubbleToggleItem.getColorActive());
         titleView.setText(bubbleToggleItem.getTitle());
         titleView.setTextSize(TypedValue.COMPLEX_UNIT_PX, bubbleToggleItem.getTitleSize());
-
         //get the current measured title width
         titleView.setVisibility(VISIBLE);
         //update the margin of the text view
@@ -212,8 +234,50 @@ public class BubbleToggleView extends LinearLayout {
         addView(iconView);
         addView(titleView);
 
+        updateBadge(context);
+
         //set the initial state
         setInitialState(isActive);
+    }
+
+    /**
+     * Adds or removes the badge
+     */
+    private void updateBadge(Context context) {
+
+        //remove the previous badge view
+        if (badgeView != null)
+            removeView(badgeView);
+
+        if (bubbleToggleItem.getBadgeText() == null)
+            return;
+
+        //create badge
+        badgeView = new TextView(context);
+        LayoutParams lpBadge = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        lpBadge.addRule(RelativeLayout.ALIGN_TOP, iconView.getId());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            lpBadge.addRule(RelativeLayout.ALIGN_END, iconView.getId());
+        } else
+            lpBadge.addRule(RelativeLayout.ALIGN_RIGHT, iconView.getId());
+        badgeView.setLayoutParams(lpBadge);
+        badgeView.setSingleLine(true);
+        badgeView.setTextColor(bubbleToggleItem.getBadgeTextColor());
+        badgeView.setText(bubbleToggleItem.getBadgeText());
+        badgeView.setTextSize(TypedValue.COMPLEX_UNIT_PX, bubbleToggleItem.getBadgeTextSize());
+        badgeView.setGravity(Gravity.CENTER);
+        Drawable drawable = ContextCompat.getDrawable(context, R.drawable.badge_background_white);
+        ViewUtils.updateDrawableColor(drawable, bubbleToggleItem.getBadgeBackgroundColor());
+        badgeView.setBackground(drawable);
+        int badgePadding = (int) context.getResources().getDimension(R.dimen.default_nav_item_badge_padding);
+        //update the margin of the text view
+        badgeView.setPadding(badgePadding, 0, badgePadding, 0);
+        //measure the content width
+        badgeView.measure(0, 0);
+        if (badgeView.getMeasuredWidth() < badgeView.getMeasuredHeight())
+            badgeView.setWidth(badgeView.getMeasuredHeight());
+
+        addView(badgeView);
     }
 
     /////////////////////////////////
@@ -367,6 +431,16 @@ public class BubbleToggleView extends LinearLayout {
         if (newTitleWidth > 0 && newTitleWidth < measuredTitleWidth) {
             measuredTitleWidth = titleView.getMeasuredWidth();
         }
+    }
+
+    /**
+     * Set value to the Badge's
+     *
+     * @param value as String, null to hide
+     */
+    public void setBadgeText(String value) {
+        bubbleToggleItem.setBadgeText(value);
+        updateBadge(getContext());
     }
 
 }

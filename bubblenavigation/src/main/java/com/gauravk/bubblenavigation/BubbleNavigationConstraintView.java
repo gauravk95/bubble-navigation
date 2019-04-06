@@ -24,6 +24,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.View;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 
@@ -59,6 +60,8 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
     private DisplayMode displayMode = DisplayMode.SPREAD;
 
     private Typeface currentTypeface;
+
+    private SparseArray<String> pendingBadgeUpdate;
 
     /**
      * Constructors
@@ -178,6 +181,13 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
 
         if (currentTypeface != null)
             setTypeface(currentTypeface);
+
+        //update the badge count
+        if (pendingBadgeUpdate != null && bubbleNavItems != null) {
+            for (int i = 0; i < pendingBadgeUpdate.size(); i++)
+                setBadgeValue(pendingBadgeUpdate.keyAt(i), pendingBadgeUpdate.valueAt(i));
+            pendingBadgeUpdate.clear();
+        }
     }
 
     /**
@@ -330,6 +340,25 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
 
         BubbleToggleView btv = bubbleNavItems.get(position);
         btv.performClick();
+    }
+
+    /**
+     * Sets the badge value
+     *
+     * @param position current position change
+     * @param value    value to be set in the badge
+     */
+    @Override
+    public void setBadgeValue(int position, String value) {
+        if (bubbleNavItems != null) {
+            BubbleToggleView btv = bubbleNavItems.get(position);
+            if (btv != null)
+                btv.setBadgeText(value);
+        } else {
+            if (pendingBadgeUpdate == null)
+                pendingBadgeUpdate = new SparseArray<>();
+            pendingBadgeUpdate.put(position, value);
+        }
     }
 
     @Override
