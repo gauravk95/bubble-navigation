@@ -38,7 +38,7 @@ Check out the Sample app, to see how its implemented.
 * This library is available on JCenter. To use it, add the following to `build.gradle`
 ```gradle
 dependencies {
-    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.6'
+    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
 }
 ```
 
