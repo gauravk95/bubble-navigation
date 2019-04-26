@@ -23,8 +23,10 @@ import android.graphics.drawable.TransitionDrawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
+import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -115,7 +117,10 @@ public class BubbleToggleView extends RelativeLayout {
         if (attrs != null) {
             TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.BubbleToggleView, 0, 0);
             try {
-                icon = ta.getDrawable(R.styleable.BubbleToggleView_bt_icon);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                    icon = ta.getDrawable(R.styleable.BubbleToggleView_bt_icon);
+                else
+                    icon = AppCompatResources.getDrawable(getContext(), ta.getResourceId(R.styleable.BubbleToggleView_bt_icon, R.drawable.default_icon));
                 iconWidth = ta.getDimension(R.styleable.BubbleToggleView_bt_iconWidth, iconWidth);
                 iconHeight = ta.getDimension(R.styleable.BubbleToggleView_bt_iconHeight, iconHeight);
                 shape = ta.getDrawable(R.styleable.BubbleToggleView_bt_shape);
