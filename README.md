@@ -28,6 +28,7 @@
     - **BubbleNavigationConstraintView:** supports `spread`, `inside` and `packed` mode
     - **BubbleNavigationLinearView:** allows equal distribution using weight or packed mode
 - Bonus **BubbleToggleView** to create new UI components, other than navigation
+- Add Badges
 
 ## Usage
 
@@ -37,7 +38,7 @@ Check out the Sample app, to see how its implemented.
 * This library is available on JCenter. To use it, add the following to `build.gradle`
 ```gradle
 dependencies {
-    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.4'
+    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
 }
 ```
 
@@ -129,6 +130,10 @@ This view can be used independently for:
 | bt_duration     |  Sets time duration for toggle animation to complete in ms | 
 | bt_padding     |  Sets the internal padding in dp | 
 | bt_titlePadding | Sets the title padding in dp | 
+| bt_badgeText | Sets the text for the badge | 
+| bt_badgeTextSize | Sets the font size of the badge text | 
+| bt_badgeTextColor | Sets the text color of the badge | 
+| bt_badgeBackgroundColor | Sets the background color of the badge | 
 
  **Note:** Normal drawables may retain the shape of each Navigation item. Setting the same drawable for each item with different bt_shapeColor properties produces a similar effect while lowering memory usage and improving performance. 
  
@@ -154,6 +159,7 @@ Or in Kotlin
 | `void setTypeface(Typeface typeface)`   | Updates the typeface of the text  |
 | `void setNavigationChangeListener(BubbleNavigationChangeListener listener)` | Sets the navigation change listener|
 | `int getCurrentActiveItemPosition()` | Returns the current active position |
+| `void setBadgeValue(int position, String value)` | Updates the corresponding badge text value |
 
 ## Contribute
 
@@ -162,10 +168,6 @@ Users are welcome to suggest ideas or feature requests, or report bugs and issue
 I am always open to new suggestions and good contributions.
 
 ## Contact
-
-I am available for new projects and/or opportunities! 
-
-Have anything to say? Looking for someone to build new apps? Have an exiciting product and want to strenthen your team?
 
 Feel free to reach out to me at gauravkcs50@gmail.com
 

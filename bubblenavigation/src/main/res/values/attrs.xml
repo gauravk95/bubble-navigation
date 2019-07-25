@@ -15,6 +15,10 @@
         <attr name="bt_duration" format="integer" />
         <attr name="bt_padding" format="dimension" />
         <attr name="bt_titlePadding" format="dimension" />
+        <attr name="bt_badgeTextSize" format="dimension" />
+        <attr name="bt_badgeBackgroundColor" format="color" />
+        <attr name="bt_badgeTextColor" format="color" />
+        <attr name="bt_badgeText" format="string" />
     </declare-styleable>
     <declare-styleable name="BubbleNavigationConstraintView">
         <attr name="bnc_mode">

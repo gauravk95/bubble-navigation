@@ -1,5 +1,6 @@
 package com.gauravk.bubblebarsample
 
+import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.ViewPager
@@ -13,6 +14,10 @@ class FloatingTopBarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_floating_top_bar)
+
+        floating_top_bar_navigation.setTypeface(Typeface.createFromAsset(assets, "rubik.ttf"))
+        floating_top_bar_navigation.setBadgeValue(0, "3")
+        floating_top_bar_navigation.setBadgeValue(1, "9+") //invisible badge
 
         val fragList = ArrayList<ScreenSlidePageFragment>()
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.home), R.color.red_inactive))

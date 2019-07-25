@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="default_corner_radii">56dp</dimen>
+    <dimen name="default_badge_corner_radii">16dp</dimen>
     <dimen name="default_nav_item_padding">12dp</dimen>
     <dimen name="default_nav_item_text_size">14sp</dimen>
     <dimen name="default_nav_item_text_padding">8dp</dimen>
     <dimen name="default_nav_item_title_max_width">80dp</dimen>
     <dimen name="default_icon_size">24dp</dimen>
+    <dimen name="default_nav_item_badge_padding">2dp</dimen>
+    <dimen name="default_nav_item_badge_text_size">7sp</dimen>
 </resources>

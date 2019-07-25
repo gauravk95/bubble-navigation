@@ -24,6 +24,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.View;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 
@@ -36,7 +37,7 @@ import java.util.ArrayList;
  */
 
 @SuppressWarnings("unused")
-public class BubbleNavigationConstraintView extends ConstraintLayout implements View.OnClickListener {
+public class BubbleNavigationConstraintView extends ConstraintLayout implements View.OnClickListener, IBubbleNavigation {
 
     enum DisplayMode {
         SPREAD,
@@ -53,9 +54,14 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
     private BubbleNavigationChangeListener navigationChangeListener;
 
     private int currentActiveItemPosition = 0;
+    private boolean loadPreviousState;
 
     //default display mode
     private DisplayMode displayMode = DisplayMode.SPREAD;
+
+    private Typeface currentTypeface;
+
+    private SparseArray<String> pendingBadgeUpdate;
 
     /**
      * Constructors
@@ -80,6 +86,7 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
         Bundle bundle = new Bundle();
         bundle.putParcelable("superState", super.onSaveInstanceState());
         bundle.putInt("current_item", currentActiveItemPosition);
+        bundle.putBoolean("load_prev_state", true);
         return bundle;
     }
 
@@ -88,6 +95,7 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
         if (state instanceof Bundle) {
             Bundle bundle = (Bundle) state;
             currentActiveItemPosition = bundle.getInt("current_item");
+            loadPreviousState = bundle.getBoolean("load_prev_state");
             state = bundle.getParcelable("superState");
         }
         super.onRestoreInstanceState(state);
@@ -170,6 +178,16 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
         setInitialActiveState();
         updateMeasurementForItems();
         createChains();
+
+        if (currentTypeface != null)
+            setTypeface(currentTypeface);
+
+        //update the badge count
+        if (pendingBadgeUpdate != null && bubbleNavItems != null) {
+            for (int i = 0; i < pendingBadgeUpdate.size(); i++)
+                setBadgeValue(pendingBadgeUpdate.keyAt(i), pendingBadgeUpdate.valueAt(i));
+            pendingBadgeUpdate.clear();
+        }
     }
 
     /**
@@ -209,18 +227,25 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
         if (bubbleNavItems == null) return;
 
         boolean foundActiveElement = false;
-        for (int i = 0; i < bubbleNavItems.size(); i++) {
-            if (bubbleNavItems.get(i).isActive() && !foundActiveElement) {
-                foundActiveElement = true;
-                currentActiveItemPosition = i;
-            } else {
+
+        // find the initial state
+        if (!loadPreviousState) {
+            for (int i = 0; i < bubbleNavItems.size(); i++) {
+                if (bubbleNavItems.get(i).isActive() && !foundActiveElement) {
+                    foundActiveElement = true;
+                    currentActiveItemPosition = i;
+                } else {
+                    bubbleNavItems.get(i).setInitialState(false);
+                }
+            }
+        } else {
+            for (int i = 0; i < bubbleNavItems.size(); i++) {
                 bubbleNavItems.get(i).setInitialState(false);
             }
         }
-
-        if (!foundActiveElement) {
+        //set the active element
+        if (!foundActiveElement)
             bubbleNavItems.get(currentActiveItemPosition).setInitialState(true);
-        }
     }
 
     /**
@@ -265,6 +290,7 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
      *
      * @param navigationChangeListener sets the passed parameters as listener
      */
+    @Override
     public void setNavigationChangeListener(BubbleNavigationChangeListener navigationChangeListener) {
         this.navigationChangeListener = navigationChangeListener;
     }
@@ -274,9 +300,14 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
      *
      * @param typeface to be used
      */
+    @Override
     public void setTypeface(Typeface typeface) {
-        for (BubbleToggleView btv : bubbleNavItems)
-            btv.setTitleTypeface(typeface);
+        if (bubbleNavItems != null) {
+            for (BubbleToggleView btv : bubbleNavItems)
+                btv.setTitleTypeface(typeface);
+        } else {
+            currentTypeface = typeface;
+        }
     }
 
     /**
@@ -284,6 +315,7 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
      *
      * @return active item position
      */
+    @Override
     public int getCurrentActiveItemPosition() {
         return currentActiveItemPosition;
     }
@@ -293,6 +325,7 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
      *
      * @param position current position change
      */
+    @Override
     public void setCurrentActiveItem(int position) {
 
         if (bubbleNavItems == null) {
@@ -307,6 +340,25 @@ public class BubbleNavigationConstraintView extends ConstraintLayout implements 
 
         BubbleToggleView btv = bubbleNavItems.get(position);
         btv.performClick();
+    }
+
+    /**
+     * Sets the badge value
+     *
+     * @param position current position change
+     * @param value    value to be set in the badge
+     */
+    @Override
+    public void setBadgeValue(int position, String value) {
+        if (bubbleNavItems != null) {
+            BubbleToggleView btv = bubbleNavItems.get(position);
+            if (btv != null)
+                btv.setBadgeText(value);
+        } else {
+            if (pendingBadgeUpdate == null)
+                pendingBadgeUpdate = new SparseArray<>();
+            pendingBadgeUpdate.put(position, value);
+        }
     }
 
     @Override

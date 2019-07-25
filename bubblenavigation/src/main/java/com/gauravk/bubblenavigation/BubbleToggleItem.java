@@ -21,11 +21,17 @@ class BubbleToggleItem {
     private Drawable icon;
     private Drawable shape;
     private String title = "";
+
     private int colorActive = Color.BLUE;
     private int colorInactive = Color.BLACK;
     private int shapeColor = Integer.MIN_VALUE;
 
+    private String badgeText;
+    private int badgeTextColor = Color.WHITE;
+    private int badgeBackgroundColor = Color.BLACK;
+
     private float titleSize;
+    private float badgeTextSize;
     private float iconWidth, iconHeight;
 
     private int titlePadding;
@@ -120,5 +126,37 @@ class BubbleToggleItem {
 
     void setInternalPadding(int internalPadding) {
         this.internalPadding = internalPadding;
+    }
+
+    int getBadgeTextColor() {
+        return badgeTextColor;
+    }
+
+    void setBadgeTextColor(int badgeTextColor) {
+        this.badgeTextColor = badgeTextColor;
+    }
+
+    int getBadgeBackgroundColor() {
+        return badgeBackgroundColor;
+    }
+
+    void setBadgeBackgroundColor(int badgeBackgroundColor) {
+        this.badgeBackgroundColor = badgeBackgroundColor;
+    }
+
+    float getBadgeTextSize() {
+        return badgeTextSize;
+    }
+
+    void setBadgeTextSize(float badgeTextSize) {
+        this.badgeTextSize = badgeTextSize;
+    }
+
+    String getBadgeText() {
+        return badgeText;
+    }
+
+    void setBadgeText(String badgeText) {
+        this.badgeText = badgeText;
     }
 }
