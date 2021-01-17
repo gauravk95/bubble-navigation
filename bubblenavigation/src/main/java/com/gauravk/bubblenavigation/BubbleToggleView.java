@@ -23,7 +23,6 @@ import android.graphics.drawable.TransitionDrawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.content.res.AppCompatResources;
@@ -34,6 +33,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.gauravk.bubblenavigation.util.ViewUtils;
 
 /**
@@ -101,6 +101,7 @@ public class BubbleToggleView extends RelativeLayout {
         Drawable shape = null;
         int shapeColor = Integer.MIN_VALUE;
         int colorActive = ViewUtils.getThemeAccentColor(context);
+        int titleColorActive = colorActive;
         int colorInactive = ContextCompat.getColor(context, R.color.default_inactive_color);
         float titleSize = context.getResources().getDimension(R.dimen.default_nav_item_text_size);
         maxTitleWidth = context.getResources().getDimension(R.dimen.default_nav_item_title_max_width);
@@ -129,6 +130,7 @@ public class BubbleToggleView extends RelativeLayout {
                 title = ta.getString(R.styleable.BubbleToggleView_bt_title);
                 titleSize = ta.getDimension(R.styleable.BubbleToggleView_bt_titleSize, titleSize);
                 colorActive = ta.getColor(R.styleable.BubbleToggleView_bt_colorActive, colorActive);
+                titleColorActive = ta.getColor(R.styleable.BubbleToggleView_bt_titleColorActive, colorActive);
                 colorInactive = ta.getColor(R.styleable.BubbleToggleView_bt_colorInactive, colorInactive);
                 isActive = ta.getBoolean(R.styleable.BubbleToggleView_bt_active, false);
                 animationDuration = ta.getInteger(R.styleable.BubbleToggleView_bt_duration, DEFAULT_ANIM_DURATION);
@@ -160,6 +162,7 @@ public class BubbleToggleView extends RelativeLayout {
         bubbleToggleItem.setTitlePadding(titlePadding);
         bubbleToggleItem.setShapeColor(shapeColor);
         bubbleToggleItem.setColorActive(colorActive);
+        bubbleToggleItem.setTitleColorActive(titleColorActive);
         bubbleToggleItem.setColorInactive(colorInactive);
         bubbleToggleItem.setIconWidth(iconWidth);
         bubbleToggleItem.setIconHeight(iconHeight);
@@ -219,7 +222,7 @@ public class BubbleToggleView extends RelativeLayout {
             lpTitle.addRule(RelativeLayout.RIGHT_OF, iconView.getId());
         titleView.setLayoutParams(lpTitle);
         titleView.setSingleLine(true);
-        titleView.setTextColor(bubbleToggleItem.getColorActive());
+        titleView.setTextColor(bubbleToggleItem.getTitleColorActive());
         titleView.setText(bubbleToggleItem.getTitle());
         titleView.setTextSize(TypedValue.COMPLEX_UNIT_PX, bubbleToggleItem.getTitleSize());
         //get the current measured title width
