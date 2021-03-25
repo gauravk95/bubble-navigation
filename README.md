@@ -7,7 +7,8 @@
 [![AwesomeAndroid](https://img.shields.io/badge/Awesome_Android-BubbleNavigation-purple.svg?style=flat)](https://android.libhunt.com/bubble-navigation-alternatives)
 
 🎉 A light-weight library to make beautiful Navigation Bar easily with ton of 🎨 customization option.
-
+</br>
+**orientation,and first item selected bug and other bugs fixed**
 ## Demos
 
 | FloatingTopBarActivity  | TopBarActivity  |
