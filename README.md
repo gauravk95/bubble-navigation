@@ -35,7 +35,14 @@
 Check out the Sample app, to see how its implemented.
 
 ### Gradle
-* This library is available on JCenter. To use it, add the following to `build.gradle`
+* This library is available on JCenter. First, Make sure to add the following in your project level `build.gradle` file
+```
+repositories {
+    google()
+    jcenter()
+ }
+```
+* To use it, add the following to `build.gradle` for the module
 ```gradle
 dependencies {
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
