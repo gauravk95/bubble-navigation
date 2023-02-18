@@ -50,6 +50,9 @@ dependencies {
 ```
 
 ### XML
+
+**NOTE:** MINMUM 2 child items are required
+
 ```xml
 <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
         android:id="@+id/top_navigation_constraint"
