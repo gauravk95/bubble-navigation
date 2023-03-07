@@ -127,13 +127,14 @@ This view can be used independently for:
 | **attr**      | **Description**  |
 | ------------- | ------------- | 
 | bt_active     | Sets to Active State | 
-| bt_colorActive     | When in Active State, uses this color for the Icon and Title  | 
-| bt_colorInctive     | When in Inactive State, uses this color for the Icon and Title  | 
+| bt_colorActive     | When in Active State, uses this color for the Icon and set this as default Title text color  |
+| bt_colorInActive     | When in Inactive State, uses this color for the Icon and Title  |
 | bt_icon     | Sets the Icon Drawable | 
 | bt_iconWidth     | Updates the Icon Width| 
 | bt_iconHeigth    | Updates the Icon Height | 
 | bt_title     | Sets the Title Text |
-| bt_titleSize | Updates the Tilte Text Size in sp | 
+| bt_titleColorActive     | You can set specific color for your title text |
+| bt_titleSize | Updates the Title Text Size in sp |
 | bt_shape     | Sets the Background Drawable. Use **TransitionDrawable** to get fade in-out effect when toggling  | 
 | bt_showShapeAlways  |  If true and using Normal drawable, background shape remains visible always | 
 | bt_shapeColor  |  Changes the tint color of the shape. N/A when using TransitionDrawable or showShapeAlways is true. | 
