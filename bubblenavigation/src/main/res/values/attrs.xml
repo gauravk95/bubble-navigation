@@ -10,6 +10,7 @@
         <attr name="bt_title" format="string" />
         <attr name="bt_titleSize" format="dimension" />
         <attr name="bt_colorActive" format="color" />
+        <attr name="bt_titleColorActive" format="color" />
         <attr name="bt_colorInactive" format="color" />
         <attr name="bt_active" format="boolean" />
         <attr name="bt_duration" format="integer" />
